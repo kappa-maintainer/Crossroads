@@ -21,7 +21,7 @@ tasks.withType(JavaCompile) {
 }
 
 minecraft {
-	version = "1.12.2-14.23.3.2655"
+	version = "1.12.2-14.23.5.2847"
 	runDir = "run"
 		
 	mappings = "snapshot_20171003"
@@ -37,9 +37,12 @@ repositories {
 }
 
 dependencies {
-	deobfCompile "info.amerifrance.guideapi:Guide-API:1.12-2.1.5-60"
-	deobfCompile "mezz.jei:jei_1.12.2:4.9.1.168"
-	deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.6.465"
+	deobfCompile "info.amerifrance.guideapi:Guide-API:1.12-2.1.8-63"
+	deobfCompile "mezz.jei:jei_1.12.2:4.15.0.291"
+	deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.554"
+	deobfCompile "com.teamacronymcoders:ContentTweaker:1.12.2-4.9.1"
+	deobfCompile "com.teamacronymcoders.base:base:1.12.2-3.13.0"
+	compile files('libs/essentials-1.12.2-1.2.1.jar')
 }
 
 processResources {

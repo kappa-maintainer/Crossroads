@@ -19,6 +19,8 @@ crash-reports/
 /screenshots/
 /classes/
 /net/
+/src/main/resources/assets/base/
+/.settings/
 
 # File Extensions
 *.psd
@@ -40,7 +42,7 @@ LICENSE-fml.txt
 CREDITS-fml.txt
 Crossroads_Client.launch
 Crossroads_Server.launch
-
+gradle.properties
 usercache.json
 Crossroads_Client NonLogin.launch
 Crossroads.eml

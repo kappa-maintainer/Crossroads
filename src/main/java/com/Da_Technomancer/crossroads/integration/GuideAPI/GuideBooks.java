@@ -31,6 +31,8 @@ import com.Da_Technomancer.crossroads.items.itemSets.OreSetup;
 import com.Da_Technomancer.essentials.EssentialsConfig;
 import com.Da_Technomancer.essentials.blocks.EssentialsBlocks;
 import com.Da_Technomancer.essentials.items.EssentialsItems;
+
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -78,24 +80,17 @@ public final class GuideBooks{
 			ArrayList<CategoryAbstract> categories = new ArrayList<CategoryAbstract>();
 
 			// INTRO
-			entries.put(new ResourceLocation(Main.MODID, "first_read"), new SmartEntry("READ ME FIRST", new ItemStack(Items.BOOK, 1), "lore.first_read"));
-			createPages(pages, "lore.intro.start", new ShapelessOreRecipe(null, Items.WRITTEN_BOOK, Items.BOOK, "ingotIron"), "lore.intro.end");
-			entries.put(new ResourceLocation(Main.MODID, "intro"), new EntryItemStack(pages, "Introduction", new ItemStack(Items.PAPER, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.ores.start", new ResourceLocation(Main.MODID, "textures/blocks/ore_native_copper.png"), "lore.ores.copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_copper.png"), "lore.ores.tin", new ResourceLocation(Main.MODID, "textures/blocks/ore_tin.png"), "lore.ores.ruby", new ResourceLocation(Main.MODID, "textures/blocks/ore_ruby.png"), "lore.ores.bronze", new ShapedOreRecipe(null, OreSetup.ingotBronze, "###", "#$#", "###", '#', "nuggetCopper", '$', "nuggetTin"), new ShapedOreRecipe(null, OreSetup.blockBronze, "###", "#$#", "###", '#', "ingotCopper", '$', "ingotTin"), new ShapedOreRecipe(null, new ItemStack(OreSetup.blockBronze, 9), "###", "#?#", "###", '#', "blockCopper", '?', "blockTin"), "lore.ores.salt", new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockSalt, 1), "##", "##", '#', "dustSalt"), new ShapedOreRecipe(null, new ItemStack(ModItems.dustSalt, 4), "#", '#', "blockSalt"));
-			entries.put(new ResourceLocation(Main.MODID, "ores"), new EntryItemStack(pages, "Ores", new ItemStack(OreSetup.ingotCopper, 1), true));
-			pages = new ArrayList<IPage>();
-
+			entries.put(new ResourceLocation(Main.MODID, "first_read"), new SmartEntry("lore.first_read.name", new ItemStack(Items.BOOK, 1), "lore.first_read"));
+			entries.put(new ResourceLocation(Main.MODID, "intro"), new SmartEntry("lore.intro.name", new ItemStack(Items.PAPER, 1), "lore.intro.start", new ShapelessOreRecipe(null, Items.WRITTEN_BOOK, Items.BOOK, "ingotIron"), "lore.intro.end"));
+			entries.put(new ResourceLocation(Main.MODID, "ores"), new SmartEntry("lore.ores.name", new ItemStack(OreSetup.ingotCopper, 1), "lore.ores.start", new ResourceLocation(Main.MODID, "textures/blocks/ore_native_copper.png"), "lore.ores.copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_copper.png"), "lore.ores.tin", new ResourceLocation(Main.MODID, "textures/blocks/ore_tin.png"), "lore.ores.ruby", new ResourceLocation(Main.MODID, "textures/blocks/ore_ruby.png"), "lore.ores.bronze", new ShapedOreRecipe(null, OreSetup.ingotBronze, "###", "#$#", "###", '#', "nuggetCopper", '$', "nuggetTin"), new ShapedOreRecipe(null, OreSetup.blockBronze, "###", "#$#", "###", '#', "ingotCopper", '$', "ingotTin"), new ShapedOreRecipe(null, new ItemStack(OreSetup.blockBronze, 9), "###", "#?#", "###", '#', "blockCopper", '?', "blockTin"), "lore.ores.salt", new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockSalt, 1), "##", "##", '#', "dustSalt"), new ShapedOreRecipe(null, new ItemStack(ModItems.dustSalt, 4), "#", '#', "blockSalt")));
 			entries.put(new ResourceLocation(Main.MODID, "energy"), new SmartEntry("lore.energy.name", new ItemStack(ModItems.omnimeter, 1), "lore.energy"));
 			entries.put(new ResourceLocation(Main.MODID, "heat"), new SmartEntry("lore.heat.name", new ItemStack(ModBlocks.fuelHeater, 1), "lore.heat.start", ((Supplier<Object>) () -> ModConfig.getConfigBool(ModConfig.heatEffects, true) ? "lore.heat.insulator" : "lore.heat.insulator_effect_disable"), "lore.heat.end", "lore.heat.bobo"));
 			entries.put(new ResourceLocation(Main.MODID, "steam"), new SmartEntry("lore.steam.name", new ItemStack(ModBlocks.fluidTube, 1), Pair.of("lore.steam", new Object[] {Math.round(EnergyConverters.DEG_PER_BUCKET_STEAM * 1.1D), EnergyConverters.DEG_PER_BUCKET_STEAM})));
 			entries.put(new ResourceLocation(Main.MODID, "rotary"), new SmartEntry("lore.rotary.name", new ItemStack(GearFactory.BASIC_GEARS.get(GearTypes.BRONZE), 1), "lore.rotary"));
-			createPages(pages, "lore.copper", new ResourceLocation(Main.MODID, "textures/book/copper_process.png"));
-			entries.put(new ResourceLocation(Main.MODID, "copper"), new EntryItemStack(pages, "Copper Processing", new ItemStack(OreSetup.ingotCopper, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "copper"), new SmartEntry("lore.copper.name", new ItemStack(OreSetup.ingotCopper, 1), "lore.copper", new ResourceLocation(Main.MODID, "textures/book/copper_process.png")));
 			entries.put(new ResourceLocation(Main.MODID, "intro_path"), new SmartEntry("lore.intro_path", new ItemStack(ModItems.watch), "lore.intro_path.start", (Supplier<Object>) () -> {return StoreNBTToClient.clientPlayerTag.getBoolean("multiplayer") ? ModConfig.getConfigBool(ModConfig.allowAllServer, true) ? "lore.intro_path.locked" : null : ModConfig.getConfigBool(ModConfig.allowAllSingle, true) ? "lore.intro_path.locked" : null;}, "lore.intro_path.continue", new ShapedOreRecipe(null, new ItemStack(ModBlocks.detailedCrafter, 1), "*^*", "^&^", "*^*", '*', "ingotIron", '^', "ingotTin", '&', Blocks.CRAFTING_TABLE), new PageDetailedRecipe(new ShapedOreRecipe(null, new ItemStack(ModBlocks.detailedCrafter, 1), "*&*", "&#&", "*&*", '*', "nuggetIron", '&', "nuggetTin", '#', Blocks.CRAFTING_TABLE), 0)));
 
-			categories.add(new CategoryItemStack(entries, "The Basics", new ItemStack(OreSetup.oreCopper, 1)));
+			categories.add(new CategoryItemStack(entries, "lore.category.basic", new ItemStack(OreSetup.oreCopper, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// HEAT
@@ -107,46 +102,29 @@ public final class GuideBooks{
 			entries.put(new ResourceLocation(Main.MODID, "redstone_cable"), new SmartEntry("lore.redstone_cable", new ItemStack(Items.REDSTONE, 1), "lore.redstone_cable.text", new ShapedOreRecipe(null, new ItemStack(HeatCableFactory.REDSTONE_HEAT_CABLES.get(HeatInsulators.WOOL), 1), "###", "#?#", "###", '#', "dustRedstone", '?', HeatCableFactory.HEAT_CABLES.get(HeatInsulators.WOOL))));
 			entries.put(new ResourceLocation(Main.MODID, "salt_reactor"), new SmartEntry("lore.salt_reactor", new ItemStack(ModBlocks.saltReactor, 1), "lore.salt_reactor.text", new ShapedOreRecipe(null, new ItemStack(ModBlocks.saltReactor, 1), "#$#", "$%$", "#@#", '#', "ingotIron", '$', ModBlocks.fluidTube, '%', "blockSalt", '@', "ingotCopper")));
 
-			categories.add(new CategoryItemStack(entries, "Heat Machines", new ItemStack(ModBlocks.heatingChamber, 1)));
+			categories.add(new CategoryItemStack(entries, "lore.category.heat", new ItemStack(ModBlocks.heatingChamber, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// ROTARY
-			createPages(pages, "lore.grindstone.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.grindstone, 1), "#$#", "#?#", "#$#", '#', "cobblestone", '?', "stickIron", '$', Blocks.PISTON), "lore.grindstone.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "grindstone"), new EntryItemStack(pages, "Grindstone", new ItemStack(ModBlocks.grindstone, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.drill.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryDrill, 2), " * ", "*#*", '*', "ingotIron", '#', "blockIron"), "lore.drill.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "drill"), new EntryItemStack(pages, "Rotary Drill", new ItemStack(ModBlocks.rotaryDrill, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.toggle_gear.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(GearFactory.TOGGLE_GEARS.get(GearTypes.GOLD), 1), "dustRedstone", "dustRedstone", "stickIron", GearFactory.BASIC_GEARS.get(GearTypes.GOLD)), "lore.toggle_gear.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "toggle_gear"), new EntryItemStack(pages, "Toggle Gear", new ItemStack(Items.REDSTONE, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "grindstone"), new SmartEntry("lore.grindstone.name", new ItemStack(ModBlocks.grindstone, 1), "lore.grindstone.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.grindstone, 1), "#$#", "#?#", "#$#", '#', "cobblestone", '?', "stickIron", '$', Blocks.PISTON), "lore.grindstone.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "drill"), new SmartEntry("lore.drill.name", new ItemStack(ModBlocks.rotaryDrill, 1), "lore.drill.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryDrill, 2), " * ", "*#*", '*', "ingotIron", '#', "blockIron"), "lore.drill.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "toggle_gear"), new SmartEntry("lore.toggle_gear.name", new ItemStack(Items.REDSTONE, 1), "lore.toggle_gear.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(GearFactory.TOGGLE_GEARS.get(GearTypes.GOLD), 1), "dustRedstone", "dustRedstone", "stickIron", GearFactory.BASIC_GEARS.get(GearTypes.GOLD)), "lore.toggle_gear.post_recipe"));
 
-			categories.add(new CategoryItemStack(entries, "Rotary Machines", new ItemStack(GearFactory.BASIC_GEARS.get(GearTypes.BRONZE), 1)));
+			categories.add(new CategoryItemStack(entries, "lore.category.rotary", new ItemStack(GearFactory.BASIC_GEARS.get(GearTypes.BRONZE), 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// FLUIDS
-			createPages(pages, "lore.rotary_pump.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), "#$#", "#$#", "&$&", '#', "ingotBronze", '&', "blockGlass", '$', "stickIron"), "lore.rotary_pump.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "rotary_pump"), new EntryItemStack(pages, "Rotary Pump", new ItemStack(ModBlocks.rotaryPump, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.steam_turbine.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(ModBlocks.steamTurbine, 1), ModBlocks.rotaryPump), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), ModBlocks.steamTurbine), Pair.of("lore.steam_turbine.post_recipe", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM / EnergyConverters.DEG_PER_JOULE}));
-			entries.put(new ResourceLocation(Main.MODID, "steam_turbine"), new EntryItemStack(pages, "Steam Turbine", new ItemStack(ModBlocks.steamTurbine, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "rotary_pump"), new SmartEntry("lore.rotary_pump.name", new ItemStack(ModBlocks.rotaryPump, 1), "lore.rotary_pump.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), "#$#", "#$#", "&$&", '#', "ingotBronze", '&', "blockGlass", '$', "stickIron"), "lore.rotary_pump.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "steam_turbine"), new SmartEntry("lore.steam_turbine.name", new ItemStack(ModBlocks.steamTurbine, 1), "lore.steam_turbine.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(ModBlocks.steamTurbine, 1), ModBlocks.rotaryPump), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), ModBlocks.steamTurbine), Pair.of("lore.steam_turbine.post_recipe", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM / EnergyConverters.DEG_PER_JOULE})));
 			entries.put(new ResourceLocation(Main.MODID, "radiator"), new SmartEntry("lore.radiator.name", new ItemStack(ModBlocks.radiator, 1), Pair.of("lore.radiator", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.radiator, 1), "#$#", "#$#", "#$#", '#', ModBlocks.fluidTube, '$', "ingotIron"), ((Supplier<Object>) () -> {return ModConfig.getConfigBool(ModConfig.weatherControl, true) ? "lore.radiator.bobo_rain_idol" : null;})));
-			createPages(pages, "lore.liquid_fat.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCollector, 1), "***", "# #", "*&*", '*', "ingotBronze", '#', "netherrack", '&', "ingotCopper"), Pair.of("lore.liquid_fat.mid_recipe", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCongealer, 1), "*^*", "# #", "* *", '*', "ingotBronze", '#', "netherrack", '^', "stickIron"), "lore.liquid_fat.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "liquid_fat"), new EntryItemStack(pages, "Basics of Liquid Fat", new ItemStack(ModItems.edibleBlob, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.fat_feeder.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatFeeder, 1), "*^*", "#&#", "*^*", '*', "ingotBronze", '#', "netherrack", '^', "stickIron", '&', "ingotTin"), Pair.of("lore.fat_feeder.post_recipe", new Object[]{EnergyConverters.FAT_PER_VALUE}));
-			entries.put(new ResourceLocation(Main.MODID, "fat_feeder"), new EntryItemStack(pages, "Fat Feeder", new ItemStack(ModBlocks.fatFeeder, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.redstone_tube", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneFluidTube, 1), "***", "*&*", "***", '*', "dustRedstone", '&', ModBlocks.fluidTube));
-			entries.put(new ResourceLocation(Main.MODID, "redstone_tube"), new EntryItemStack(pages, "Redstone Integration-Fluids", new ItemStack(Items.REDSTONE), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "liquid_fat"), new SmartEntry("lore.liquid_fat.name", new ItemStack(ModItems.edibleBlob, 1), "lore.liquid_fat.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCollector, 1), "***", "# #", "*&*", '*', "ingotBronze", '#', "netherrack", '&', "ingotCopper"), Pair.of("lore.liquid_fat.mid_recipe", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCongealer, 1), "*^*", "# #", "* *", '*', "ingotBronze", '#', "netherrack", '^', "stickIron"), "lore.liquid_fat.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "fat_feeder"), new SmartEntry("lore.fat_feeder.name", new ItemStack(ModBlocks.fatFeeder, 1), "lore.fat_feeder.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatFeeder, 1), "*^*", "#&#", "*^*", '*', "ingotBronze", '#', "netherrack", '^', "stickIron", '&', "ingotTin"), Pair.of("lore.fat_feeder.post_recipe", new Object[]{EnergyConverters.FAT_PER_VALUE})));
+			entries.put(new ResourceLocation(Main.MODID, "redstone_tube"), new SmartEntry("lore.redstone_tube.name", new ItemStack(Items.REDSTONE), "lore.redstone_tube", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneFluidTube, 1), "***", "*&*", "***", '*', "dustRedstone", '&', ModBlocks.fluidTube)));
 			entries.put(new ResourceLocation(Main.MODID, "fluid_splitter"), new SmartEntry("lore.fluid_splitter.name", new ItemStack(ModBlocks.fluidSplitter, 1), "lore.fluid_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.basicFluidSplitter, 1), "*^*", "&&&", "*^*", '*', "nuggetTin", '^', ModBlocks.fluidTube, '&', "ingotBronze"), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.fluidSplitter, 1), ModBlocks.basicFluidSplitter, "dustRedstone", "dustRedstone", "dustRedstone")));
-			createPages(pages, "lore.water_centrifuge.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.waterCentrifuge, 1), "*&*", "^%^", "* *", '*', "ingotBronze", '&', "stickIron", '^', ModBlocks.fluidTube, '%', "ingotTin"), "lore.water_centrifuge.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "water_centrifuge"), new EntryItemStack(pages, "Water Centrifuge", new ItemStack(ModBlocks.waterCentrifuge), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "water_centrifuge"), new SmartEntry("lore.water_centrifuge.name", new ItemStack(ModBlocks.waterCentrifuge), "lore.water_centrifuge.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.waterCentrifuge, 1), "*&*", "^%^", "* *", '*', "ingotBronze", '&', "stickIron", '^', ModBlocks.fluidTube, '%', "ingotTin"), "lore.water_centrifuge.post_recipe"));
 
-			categories.add(new CategoryItemStack(entries, "Fluid Machines", new ItemStack(ModBlocks.fluidTube, 1)));
+
+			categories.add(new CategoryItemStack(entries, "lore.category.fluid", new ItemStack(ModBlocks.fluidTube, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// MISC
@@ -157,50 +135,26 @@ public final class GuideBooks{
 			entries.put(new ResourceLocation(Main.MODID, "decorative"), new SmartEntry("lore.decorative.name", new ItemStack(EssentialsBlocks.candleLilyPad, 1), "lore.decorative", "lore.decorative.bobo"));
 			entries.put(new ResourceLocation(Main.MODID, "fertile_soil"), new SmartEntry("lore.fertile_soil.name", new ItemStack(EssentialsBlocks.fertileSoil, 1), "lore.fertile_soil"));
 			entries.put(new ResourceLocation(Main.MODID, "item_chute"), new SmartEntry("lore.item_chute.name", new ItemStack(EssentialsBlocks.itemChutePort, 1), "lore.item_chute.start", (Supplier) () -> EssentialsConfig.getConfigBool(EssentialsConfig.itemChuteRotary, true) ? "lore.item_chute.cr" : "lore.item_chute.default"));
-			createPages(pages, "lore.multi_piston.pre_recipe", new ShapedOreRecipe(null, ModBlocks.multiPiston, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.PISTON), new ShapedOreRecipe(null, ModBlocks.multiPistonSticky, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.STICKY_PISTON), new ShapelessOreRecipe(null, ModBlocks.multiPistonSticky, ModBlocks.multiPiston, "slimeball"), "lore.multi_piston.post_recipe", new ShapelessOreRecipe(null, Blocks.PISTON, "cobblestone", "ingotIron", "dustRedstone", "logWood"));
-			entries.put(new ResourceLocation(Main.MODID, "multi_piston"), new EntryItemStack(pages, "Multi-Piston", new ItemStack(ModBlocks.multiPiston, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.ratiator.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.ratiator, 1), " * ", "*#*", "^^^", '*', ModItems.luminescentQuartz, '#', ModItems.pureQuartz, '^', "stone"), "lore.ratiator.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "ratiator"), new EntryItemStack(pages, "Ratiator", new ItemStack(ModBlocks.ratiator, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "multi_piston"), new SmartEntry("lore.multi_piston.name", new ItemStack(ModBlocks.multiPiston, 1), "lore.multi_piston.pre_recipe", new ShapedOreRecipe(null, ModBlocks.multiPiston, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.PISTON), new ShapedOreRecipe(null, ModBlocks.multiPistonSticky, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.STICKY_PISTON), new ShapelessOreRecipe(null, ModBlocks.multiPistonSticky, ModBlocks.multiPiston, "slimeball"), "lore.multi_piston.post_recipe", new ShapelessOreRecipe(null, Blocks.PISTON, "cobblestone", "ingotIron", "dustRedstone", "logWood")));
+			entries.put(new ResourceLocation(Main.MODID, "ratiator"), new SmartEntry("lore.ratiator.name", new ItemStack(ModBlocks.ratiator, 1), "lore.ratiator.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.ratiator, 1), " * ", "*#*", "^^^", '*', ModItems.luminescentQuartz, '#', ModItems.pureQuartz, '^', "stone"), "lore.ratiator.post_recipe"));
 			entries.put(new ResourceLocation(Main.MODID, "port_extender"), new SmartEntry("lore.port_extender.name", new ItemStack(EssentialsBlocks.portExtender, 1), "lore.port_extender"));
 			entries.put(new ResourceLocation(Main.MODID, "redstone_keyboard"), new SmartEntry("lore.redstone_keyboard.name", new ItemStack(ModBlocks.redstoneKeyboard, 1), "lore.redstone_keyboard", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneKeyboard, 1), " & ", "&*&", " & ", '*', "ingotBronze", '&', "dustRedstone")));
 
-			categories.add(new CategoryItemStack(entries, "Miscellaneous", new ItemStack(EssentialsBlocks.brazier, 1)));
+			categories.add(new CategoryItemStack(entries, "lore.category.misc", new ItemStack(EssentialsBlocks.brazier, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			//MAGIC
-			createPages(pages, "lore.basic_magic.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 1), "dustSalt", "dustSalt", "gemQuartz"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockPureQuartz, 1), "**", "**", '*', ModItems.pureQuartz), new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 4), ModBlocks.blockPureQuartz), "lore.basic_magic.mid_recipe", new ShapedOreRecipe(null, new ItemStack(ModItems.lensArray, 2), "*&*", "@ $", "***", '*', ModItems.pureQuartz, '&', "gemEmerald", '@', "gemRuby", '$', "gemDiamond"), "lore.basic_magic.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "basic_magic"), new EntryItemStack(pages, "Basics of Magic", new ItemStack(ModItems.pureQuartz, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "basic_magic"), new SmartEntry("Basics of Magic", new ItemStack(ModItems.pureQuartz, 1), "lore.basic_magic.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 1), "dustSalt", "dustSalt", "gemQuartz"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockPureQuartz, 1), "**", "**", '*', ModItems.pureQuartz), new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 4), ModBlocks.blockPureQuartz), "lore.basic_magic.mid_recipe", new ShapedOreRecipe(null, new ItemStack(ModItems.lensArray, 2), "*&*", "@ $", "***", '*', ModItems.pureQuartz, '&', "gemEmerald", '@', "gemRuby", '$', "gemDiamond"), "lore.basic_magic.post_recipe"));
 			entries.put(new ResourceLocation(Main.MODID, "elements"), new SmartEntry("lore.elements.name", new ItemStack(ModItems.lensArray, 1), "lore.elements.preamble", true, ((Supplier<Object>) () -> {NBTTagCompound elementTag = StoreNBTToClient.clientPlayerTag.getCompoundTag("elements"); Object[] out = new Object[elementTag.getKeySet().size() * 2]; int arrayIndex = 0; for(int i = EnumMagicElements.values().length - 1; i >= 0; i--){EnumMagicElements elem = EnumMagicElements.values()[i]; if(elementTag.hasKey(elem.name())){out[arrayIndex++] = "lore.elements." + elem.name().toLowerCase() + (elem == EnumMagicElements.TIME ? !ModConfig.getConfigBool(ModConfig.allowTimeBeam, true) ? ".dis" : "" : ""); out[arrayIndex++] = true;}} return out;})));
-			createPages(pages, "lore.color_chart.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.colorChart, 1), "RGB", "^^^", "___", '_', "slabWood", '^', "paper", 'R', "dyeRed", 'G', "dyeLime", 'B', "dyeBlue"), "lore.color_chart.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "color_chart"), new EntryItemStack(pages, "Discovering Elements", new ItemStack(ModBlocks.colorChart, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.arcane_extractor.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneExtractor, 1), "***", "*# ", "***", '*', "stone", '#', ModItems.lensArray), "lore.arcane_extractor.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "arcane_extractor"), new EntryItemStack(pages, "Arcane Extractor", new ItemStack(ModBlocks.arcaneExtractor, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.quartz_stabilizer.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " * ", "*&*", "***", '*', ModItems.pureQuartz, '&', ModItems.lensArray), new ShapedOreRecipe(null, new ItemStack(ModBlocks.largeQuartzStabilizer, 1), "***", "*&*", "***", '*', ModItems.pureQuartz, '&', ModBlocks.smallQuartzStabilizer), "lore.quartz_stabilizer.mid_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " & ", "***", '&', ModItems.luminescentQuartz, '*', ModItems.pureQuartz), "lore.quartz_stabilizer.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "quartz_stabilizer"), new EntryItemStack(pages, "Quartz Stabilizer", new ItemStack(ModBlocks.smallQuartzStabilizer, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.lens_holder.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.lensHolder, 1), "***", "*&*", "***", '*', "stone", '&', ModItems.pureQuartz), "lore.lens_holder.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "lens_holder"), new EntryItemStack(pages, "Lens Holder", new ItemStack(ModBlocks.lensHolder, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.arcane_reflector", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneReflector, 1), "*^*", '*', "stone", '^', ModItems.pureQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "arcane_reflector"), new EntryItemStack(pages, "Arcane Reflector", new ItemStack(ModBlocks.arcaneReflector, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.beam_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beamSplitterBasic, 1), "*^*", "*&*", "*^*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.beamSplitter, 1), ModBlocks.beamSplitterBasic, "dustRedstone", "dustRedstone", "dustRedstone"));
-			entries.put(new ResourceLocation(Main.MODID, "beam_splitter"), new EntryItemStack(pages, "Beam Splitter", new ItemStack(ModBlocks.beamSplitter, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.crystalline_prism", new ShapedOreRecipe(null, new ItemStack(ModBlocks.crystallinePrism, 1), "*^*", "^&^", "*&*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray));
-			entries.put(new ResourceLocation(Main.MODID, "crystalline_prism"), new EntryItemStack(pages, "Crystalline Prism", new ItemStack(ModBlocks.crystallinePrism, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.crystal_master_axis.pre_recipe", new ShapedOreRecipe(null, ModBlocks.crystalMasterAxis, "*&*", "*#*", "***", '*', ModItems.pureQuartz, '#', ModBlocks.masterAxis, '&', ModItems.lensArray), "lore.crystal_master_axis.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "crystal_master_axis"), new EntryItemStack(pages, "Crystalline Master Axis", new ItemStack(ModBlocks.crystalMasterAxis, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "lore.void.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModItems.voidCrystal, 1), "*#*", "###", "*#*", '*', Items.DRAGON_BREATH, '#', ModItems.pureQuartz), "lore.void.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "void"), new EntryItemStack(pages, "Void", new ItemStack(ModItems.voidCrystal, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "color_chart"), new SmartEntry("Discovering Elements", new ItemStack(ModBlocks.colorChart, 1), "lore.color_chart.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.colorChart, 1), "RGB", "^^^", "___", '_', "slabWood", '^', "paper", 'R', "dyeRed", 'G', "dyeLime", 'B', "dyeBlue"), "lore.color_chart.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "arcane_extractor"), new SmartEntry("Arcane Extractor", new ItemStack(ModBlocks.arcaneExtractor, 1), "lore.arcane_extractor.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneExtractor, 1), "***", "*# ", "***", '*', "stone", '#', ModItems.lensArray), "lore.arcane_extractor.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "quartz_stabilizer"), new SmartEntry("Quartz Stabilizer", new ItemStack(ModBlocks.smallQuartzStabilizer, 1), "lore.quartz_stabilizer.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " * ", "*&*", "***", '*', ModItems.pureQuartz, '&', ModItems.lensArray), new ShapedOreRecipe(null, new ItemStack(ModBlocks.largeQuartzStabilizer, 1), "***", "*&*", "***", '*', ModItems.pureQuartz, '&', ModBlocks.smallQuartzStabilizer), "lore.quartz_stabilizer.mid_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " & ", "***", '&', ModItems.luminescentQuartz, '*', ModItems.pureQuartz), "lore.quartz_stabilizer.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "lens_holder"), new SmartEntry("Lens Holder", new ItemStack(ModBlocks.lensHolder, 1), "lore.lens_holder.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.lensHolder, 1), "***", "*&*", "***", '*', "stone", '&', ModItems.pureQuartz), "lore.lens_holder.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "arcane_reflector"), new SmartEntry("Arcane Reflector", new ItemStack(ModBlocks.arcaneReflector, 1), "lore.arcane_reflector", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneReflector, 1), "*^*", '*', "stone", '^', ModItems.pureQuartz)));
+			entries.put(new ResourceLocation(Main.MODID, "beam_splitter"), new SmartEntry("Beam Splitter", new ItemStack(ModBlocks.beamSplitter, 1), "lore.beam_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beamSplitterBasic, 1), "*^*", "*&*", "*^*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.beamSplitter, 1), ModBlocks.beamSplitterBasic, "dustRedstone", "dustRedstone", "dustRedstone")));
+			entries.put(new ResourceLocation(Main.MODID, "crystalline_prism"), new SmartEntry("Crystalline Prism", new ItemStack(ModBlocks.crystallinePrism, 1), "lore.crystalline_prism", new ShapedOreRecipe(null, new ItemStack(ModBlocks.crystallinePrism, 1), "*^*", "^&^", "*&*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray)));
+			entries.put(new ResourceLocation(Main.MODID, "crystal_master_axis"), new SmartEntry("Crystalline Master Axis", new ItemStack(ModBlocks.crystalMasterAxis, 1), "lore.crystal_master_axis.pre_recipe", new ShapedOreRecipe(null, ModBlocks.crystalMasterAxis, "*&*", "*#*", "***", '*', ModItems.pureQuartz, '#', ModBlocks.masterAxis, '&', ModItems.lensArray), "lore.crystal_master_axis.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "void"), new SmartEntry("Void", new ItemStack(ModItems.voidCrystal, 1), "lore.void.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModItems.voidCrystal, 1), "*#*", "###", "*#*", '*', Items.DRAGON_BREATH, '#', ModItems.pureQuartz), "lore.void.post_recipe"));
 			entries.put(new ResourceLocation(Main.MODID, "beacon_harness"), new SmartEntry("lore.beacon_harness.name", new ItemStack(ModBlocks.beaconHarness, 1), "lore.beacon_harness.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beaconHarness, 1), "*&*", "&^&", "*&*", '*', ModItems.pureQuartz, '&', ModItems.lensArray, '^', ModItems.luminescentQuartz), "lore.beacon_harness.post_recipe", "lore.beacon_harness.bobo"));
 
 			categories.add(new CategoryItemStack(entries, "Magic", new ItemStack(ModItems.lensArray, 1)));
@@ -256,8 +210,8 @@ public final class GuideBooks{
 				}
 			});
 
-			MAIN.setGuideTitle("Main Menu");
-			MAIN.setHeader("Welcome to Crossroads");
+			MAIN.setGuideTitle("lore.title");
+			MAIN.setHeader("lore.header");
 			MAIN.setItemName("mysterious_journal");
 			MAIN.setColor(Color.GRAY);
 			for(CategoryAbstract c : categories){
@@ -291,21 +245,14 @@ public final class GuideBooks{
 			ArrayList<CategoryAbstract> categories = new ArrayList<CategoryAbstract>();
 
 			// INTRO
-			createPages(pages, "info.first_read");
-			entries.put(new ResourceLocation(Main.MODID, "first_read"), new EntryItemStack(pages, "READ ME FIRST", new ItemStack(Items.BOOK, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.intro.pre_recipe", new ShapelessOreRecipe(null, Items.WRITTEN_BOOK, Items.BOOK, "ingotIron"), "info.intro.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "intro"), new EntryItemStack(pages, "Introduction", new ItemStack(Items.PAPER, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.ores.native_copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_native_copper.png"), "info.ores.copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_copper.png"), "info.ores.tin", new ResourceLocation(Main.MODID, "textures/blocks/ore_tin.png"), "info.ores.ruby", new ResourceLocation(Main.MODID, "textures/blocks/ore_ruby.png"), "info.ores.bronze", new ShapedOreRecipe(null, OreSetup.ingotBronze, "###", "#$#", "###", '#', "nuggetCopper", '$', "nuggetTin"), new ShapedOreRecipe(null, OreSetup.blockBronze, "###", "#$#", "###", '#', "ingotCopper", '$', "ingotTin"), new ShapedOreRecipe(null, new ItemStack(OreSetup.blockBronze, 9), "###", "#?#", "###", '#', "blockCopper", '?', "blockTin"), "info.ores.salt", new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockSalt, 1), "##", "##", '#', "dustSalt"), new ShapedOreRecipe(null, new ItemStack(ModItems.dustSalt, 4), "#", '#', "blockSalt"));
-			entries.put(new ResourceLocation(Main.MODID, "ores"), new EntryItemStack(pages, "Ores", new ItemStack(OreSetup.ingotCopper, 1), true));
+			entries.put(new ResourceLocation(Main.MODID, "first_read"), new SmartEntry("READ ME FIRST", new ItemStack(Items.BOOK, 1), "info.first_read"));
+			entries.put(new ResourceLocation(Main.MODID, "intro"), new SmartEntry("Introduction", new ItemStack(Items.PAPER, 1), "info.intro.pre_recipe", new ShapelessOreRecipe(null, Items.WRITTEN_BOOK, Items.BOOK, "ingotIron"), "info.intro.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "ores"), new SmartEntry("Ores", new ItemStack(OreSetup.ingotCopper, 1), "info.ores.native_copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_native_copper.png"), "info.ores.copper", new ResourceLocation(Main.MODID, "textures/blocks/ore_copper.png"), "info.ores.tin", new ResourceLocation(Main.MODID, "textures/blocks/ore_tin.png"), "info.ores.ruby", new ResourceLocation(Main.MODID, "textures/blocks/ore_ruby.png"), "info.ores.bronze", new ShapedOreRecipe(null, OreSetup.ingotBronze, "###", "#$#", "###", '#', "nuggetCopper", '$', "nuggetTin"), new ShapedOreRecipe(null, OreSetup.blockBronze, "###", "#$#", "###", '#', "ingotCopper", '$', "ingotTin"), new ShapedOreRecipe(null, new ItemStack(OreSetup.blockBronze, 9), "###", "#?#", "###", '#', "blockCopper", '?', "blockTin"), "info.ores.salt", new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockSalt, 1), "##", "##", '#', "dustSalt"), new ShapedOreRecipe(null, new ItemStack(ModItems.dustSalt, 4), "#", '#', "blockSalt")));
 			entries.put(new ResourceLocation(Main.MODID, "energy"), new SmartEntry("info.energy.name", new ItemStack(ModItems.omnimeter, 1), "info.energy"));
 			entries.put(new ResourceLocation(Main.MODID, "heat"), new SmartEntry("info.heat.name", new ItemStack(ModBlocks.fuelHeater, 1), "info.heat.start", ((Supplier<Object>) () -> ModConfig.getConfigBool(ModConfig.heatEffects, true) ? "info.heat.insulator" : "info.heat.insulator_effect_disable"), "info.heat.end"));
 			entries.put(new ResourceLocation(Main.MODID, "steam"), new SmartEntry("info.steam.name", new ItemStack(ModBlocks.fluidTube, 1), Pair.of("info.steam", new Object[] {Math.round(EnergyConverters.DEG_PER_BUCKET_STEAM * 1.1D), EnergyConverters.DEG_PER_BUCKET_STEAM})));
 			entries.put(new ResourceLocation(Main.MODID, "rotary"), new SmartEntry("info.rotary.name", new ItemStack(GearFactory.BASIC_GEARS.get(GearTypes.BRONZE), 1), "info.rotary"));
-			createPages(pages, "info.copper", new ResourceLocation(Main.MODID, "textures/book/copper_process.png"));
-			entries.put(new ResourceLocation(Main.MODID, "copper"), new EntryItemStack(pages, "Copper Processing", new ItemStack(OreSetup.ingotCopper, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "copper"), new SmartEntry("Copper Processing", new ItemStack(OreSetup.ingotCopper, 1), "info.copper", new ResourceLocation(Main.MODID, "textures/book/copper_process.png")));
 			entries.put(new ResourceLocation(Main.MODID, "intro_path"), new SmartEntry("info.intro_path", new ItemStack(ModItems.watch), "info.intro_path.start", (Supplier<Object>) () -> {return StoreNBTToClient.clientPlayerTag.getBoolean("multiplayer") ? ModConfig.getConfigBool(ModConfig.allowAllServer, true) ? "info.intro_path.locked" : null : ModConfig.getConfigBool(ModConfig.allowAllSingle, true) ? "info.intro_path.locked" : null;}, "info.intro_path.continue", new ShapedOreRecipe(null, new ItemStack(ModBlocks.detailedCrafter, 1), "*^*", "^&^", "*^*", '*', "ingotIron", '^', "ingotTin", '&', Blocks.CRAFTING_TABLE), new PageDetailedRecipe(new ShapedOreRecipe(null, new ItemStack(ModBlocks.detailedCrafter, 1), "*&*", "&#&", "*&*", '*', "nuggetIron", '&', "nuggetTin", '#', Blocks.CRAFTING_TABLE), 0)));
 
 			categories.add(new CategoryItemStack(entries, "The Basics", new ItemStack(OreSetup.oreCopper, 1)));
@@ -324,42 +271,22 @@ public final class GuideBooks{
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// ROTARY
-			createPages(pages, "info.grindstone.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.grindstone, 1), "#$#", "#?#", "#$#", '#', "cobblestone", '?', "stickIron", '$', Blocks.PISTON), "info.grindstone.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "grindstone"), new EntryItemStack(pages, "Grindstone", new ItemStack(ModBlocks.grindstone, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.drill.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryDrill, 2), " * ", "*#*", '*', "ingotIron", '#', "blockIron"), "info.drill.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "drill"), new EntryItemStack(pages, "Rotary Drill", new ItemStack(ModBlocks.rotaryDrill, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.toggle_gear.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(GearFactory.TOGGLE_GEARS.get(GearTypes.GOLD), 1), "dustRedstone", "dustRedstone", "stickIron", GearFactory.BASIC_GEARS.get(GearTypes.GOLD)), "info.toggle_gear.post_recipe");
-			entries.put(new ResourceLocation(Main.MODID, "toggle_gear"), new EntryItemStack(pages, "Toggle Gear", new ItemStack(Items.REDSTONE, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "grindstone"), new SmartEntry("Grindstone", new ItemStack(ModBlocks.grindstone, 1), "info.grindstone.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.grindstone, 1), "#$#", "#?#", "#$#", '#', "cobblestone", '?', "stickIron", '$', Blocks.PISTON), "info.grindstone.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "drill"), new SmartEntry("Rotary Drill", new ItemStack(ModBlocks.rotaryDrill, 1), "info.drill.pre_recipe", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryDrill, 2), " * ", "*#*", '*', "ingotIron", '#', "blockIron"), "info.drill.post_recipe"));
+			entries.put(new ResourceLocation(Main.MODID, "toggle_gear"), new SmartEntry("Toggle Gear", new ItemStack(Items.REDSTONE, 1), "info.toggle_gear.pre_recipe", new ShapelessOreRecipe(null, new ItemStack(GearFactory.TOGGLE_GEARS.get(GearTypes.GOLD), 1), "dustRedstone", "dustRedstone", "stickIron", GearFactory.BASIC_GEARS.get(GearTypes.GOLD)), "info.toggle_gear.post_recipe"));
 
 			categories.add(new CategoryItemStack(entries, "Rotary Machines", new ItemStack(GearFactory.BASIC_GEARS.get(GearTypes.BRONZE), 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			// FLUIDS
-			createPages(pages,  "info.rotary_pump", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), "#$#", "#$#", "&$&", '#', "ingotBronze", '&', "blockGlass", '$', "stickIron"));
-			entries.put(new ResourceLocation(Main.MODID, "rotary_pump"), new EntryItemStack(pages, "Rotary Pump", new ItemStack(ModBlocks.rotaryPump, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, Pair.of("info.steam_turbine", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM / EnergyConverters.DEG_PER_JOULE}), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.steamTurbine, 1), ModBlocks.rotaryPump), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), ModBlocks.steamTurbine));
-			entries.put(new ResourceLocation(Main.MODID, "steam_turbine"), new EntryItemStack(pages, "Steam Turbine", new ItemStack(ModBlocks.steamTurbine, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, Pair.of("info.radiator", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.radiator, 1), "#$#", "#$#", "#$#", '#', ModBlocks.fluidTube, '$', "ingotIron"));
-			entries.put(new ResourceLocation(Main.MODID, "radiator"), new EntryItemStack(pages, "Radiator", new ItemStack(ModBlocks.radiator, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, Pair.of("info.liquid_fat", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCollector, 1), "***", "# #", "*&*", '*', "ingotTin", '#', "netherrack", '&', "ingotCopper"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCongealer, 1), "*^*", "# #", "* *", '*', "ingotTin", '#', "netherrack", '^', "stickIron"));
-			entries.put(new ResourceLocation(Main.MODID, "liquid_fat"), new EntryItemStack(pages, "Basics of Liquid Fat", new ItemStack(ModItems.edibleBlob, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, Pair.of("info.fat_feeder", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatFeeder, 1), "*^*", "# #", "*^*", '*', "ingotTin", '#', "netherrack", '^', "stickIron"));
-			entries.put(new ResourceLocation(Main.MODID, "fat_feeder"), new EntryItemStack(pages, "Fat Feeder", new ItemStack(ModBlocks.fatFeeder, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.redstone_tube", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneFluidTube, 1), "***", "*&*", "***", '*', "dustRedstone", '&', ModBlocks.fluidTube));
-			entries.put(new ResourceLocation(Main.MODID, "redstone_tube"), new EntryItemStack(pages, "Redstone Integration-Fluids", new ItemStack(Items.REDSTONE), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "rotary_pump"), new SmartEntry("Rotary Pump", new ItemStack(ModBlocks.rotaryPump, 1), "info.rotary_pump", new ShapedOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), "#$#", "#$#", "&$&", '#', "ingotBronze", '&', "blockGlass", '$', "stickIron")));
+			entries.put(new ResourceLocation(Main.MODID, "steam_turbine"), new SmartEntry("Steam Turbine", new ItemStack(ModBlocks.steamTurbine, 1), Pair.of("info.steam_turbine", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM / EnergyConverters.DEG_PER_JOULE}), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.steamTurbine, 1), ModBlocks.rotaryPump), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.rotaryPump, 1), ModBlocks.steamTurbine)));
+			entries.put(new ResourceLocation(Main.MODID, "radiator"), new SmartEntry("Radiator", new ItemStack(ModBlocks.radiator, 1), Pair.of("info.radiator", new Object[] {EnergyConverters.DEG_PER_BUCKET_STEAM}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.radiator, 1), "#$#", "#$#", "#$#", '#', ModBlocks.fluidTube, '$', "ingotIron")));
+			entries.put(new ResourceLocation(Main.MODID, "liquid_fat"), new SmartEntry("Basics of Liquid Fat", new ItemStack(ModItems.edibleBlob, 1), Pair.of("info.liquid_fat", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCollector, 1), "***", "# #", "*&*", '*', "ingotTin", '#', "netherrack", '&', "ingotCopper"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatCongealer, 1), "*^*", "# #", "* *", '*', "ingotTin", '#', "netherrack", '^', "stickIron")));
+			entries.put(new ResourceLocation(Main.MODID, "fat_feeder"), new SmartEntry("Fat Feeder", new ItemStack(ModBlocks.fatFeeder, 1), Pair.of("info.fat_feeder", new Object[] {EnergyConverters.FAT_PER_VALUE}), new ShapedOreRecipe(null, new ItemStack(ModBlocks.fatFeeder, 1), "*^*", "# #", "*^*", '*', "ingotTin", '#', "netherrack", '^', "stickIron")));
+			entries.put(new ResourceLocation(Main.MODID, "redstone_tube"), new SmartEntry("Redstone Integration-Fluids", new ItemStack(Items.REDSTONE), "info.redstone_tube", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneFluidTube, 1), "***", "*&*", "***", '*', "dustRedstone", '&', ModBlocks.fluidTube)));
 			entries.put(new ResourceLocation(Main.MODID, "fluid_splitter"), new SmartEntry("info.fluid_splitter.name", new ItemStack(ModBlocks.fluidSplitter, 1), "info.fluid_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.basicFluidSplitter, 1), "*^*", "&&&", "*^*", '*', "nuggetTin", '^', ModBlocks.fluidTube, '&', "ingotBronze"), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.fluidSplitter, 1), ModBlocks.basicFluidSplitter, "dustRedstone", "dustRedstone", "dustRedstone")));
-			createPages(pages, "info.water_centrifuge",new ShapedOreRecipe(null, new ItemStack(ModBlocks.waterCentrifuge, 1), "*&*", "^%^", "* *", '*', "ingotBronze", '&', "stickIron", '^', ModBlocks.fluidTube, '%', "ingotTin"));
-			entries.put(new ResourceLocation(Main.MODID, "water_centrifuge"), new EntryItemStack(pages, "Water Centrifuge", new ItemStack(ModBlocks.waterCentrifuge), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "water_centrifuge"), new SmartEntry("Water Centrifuge", new ItemStack(ModBlocks.waterCentrifuge), "info.water_centrifuge",new ShapedOreRecipe(null, new ItemStack(ModBlocks.waterCentrifuge, 1), "*&*", "^%^", "* *", '*', "ingotBronze", '&', "stickIron", '^', ModBlocks.fluidTube, '%', "ingotTin")));
 
 			categories.add(new CategoryItemStack(entries, "Fluid Machines", new ItemStack(ModBlocks.fluidTube, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
@@ -372,12 +299,8 @@ public final class GuideBooks{
 			entries.put(new ResourceLocation(Main.MODID, "decorative"), new SmartEntry("info.decorative.name", new ItemStack(EssentialsBlocks.candleLilyPad, 1), "info.decorative"));
 			entries.put(new ResourceLocation(Main.MODID, "fertile_soil"), new SmartEntry("info.fertile_soil.name", new ItemStack(EssentialsBlocks.fertileSoil, 1), "info.fertile_soil"));
 			entries.put(new ResourceLocation(Main.MODID, "item_chute"), new SmartEntry("info.item_chute.name", new ItemStack(EssentialsBlocks.itemChutePort, 1), "info.item_chute.start", (Supplier) () -> EssentialsConfig.getConfigBool(EssentialsConfig.itemChuteRotary, true) ? "info.item_chute.cr" : "info.item_chute.default"));
-			createPages(pages, "info.multi_piston", new ShapedOreRecipe(null, ModBlocks.multiPiston, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.PISTON), new ShapedOreRecipe(null, ModBlocks.multiPistonSticky, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.STICKY_PISTON), new ShapelessOreRecipe(null, ModBlocks.multiPistonSticky, ModBlocks.multiPiston, "slimeball"), new ShapelessOreRecipe(null, Blocks.PISTON, "cobblestone", "ingotIron", "dustRedstone", "logWood"));
-			entries.put(new ResourceLocation(Main.MODID, "multi_piston"), new EntryItemStack(pages, "Multi-Piston", new ItemStack(ModBlocks.multiPiston, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.ratiator", new ShapedOreRecipe(null, new ItemStack(ModBlocks.ratiator, 1), " * ", "*#*", "^^^", '*', ModItems.luminescentQuartz, '#', ModItems.pureQuartz, '^', "stone"));
-			entries.put(new ResourceLocation(Main.MODID, "ratiator"), new EntryItemStack(pages, "Ratiator", new ItemStack(ModBlocks.ratiator, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "multi_piston"), new SmartEntry("Multi-Piston", new ItemStack(ModBlocks.multiPiston, 1), "info.multi_piston", new ShapedOreRecipe(null, ModBlocks.multiPiston, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.PISTON), new ShapedOreRecipe(null, ModBlocks.multiPistonSticky, "***", "$#$", "$$$", '*', "ingotTin", '$', "ingotBronze", '#', Blocks.STICKY_PISTON), new ShapelessOreRecipe(null, ModBlocks.multiPistonSticky, ModBlocks.multiPiston, "slimeball"), new ShapelessOreRecipe(null, Blocks.PISTON, "cobblestone", "ingotIron", "dustRedstone", "logWood")));
+			entries.put(new ResourceLocation(Main.MODID, "ratiator"), new SmartEntry("Ratiator", new ItemStack(ModBlocks.ratiator, 1), "info.ratiator", new ShapedOreRecipe(null, new ItemStack(ModBlocks.ratiator, 1), " * ", "*#*", "^^^", '*', ModItems.luminescentQuartz, '#', ModItems.pureQuartz, '^', "stone")));
 			entries.put(new ResourceLocation(Main.MODID, "port_extender"), new SmartEntry("info.port_extender.name", new ItemStack(EssentialsBlocks.portExtender, 1), "info.port_extender"));
 			entries.put(new ResourceLocation(Main.MODID, "redstone_keyboard"), new SmartEntry("info.redstone_keyboard.name", new ItemStack(ModBlocks.redstoneKeyboard, 1), "info.redstone_keyboard", new ShapedOreRecipe(null, new ItemStack(ModBlocks.redstoneKeyboard, 1), " & ", "&*&", " & ", '*', "ingotBronze", '&', "dustRedstone")));
 			entries.put(new ResourceLocation(Main.MODID, "crafttweaker"), new SmartEntry("info.crafttweaker.name", (EntityPlayer play) -> ModConfig.getConfigBool(ModConfig.documentCrafttweaker, true), new ItemStack(Blocks.CRAFTING_TABLE, 1), "info.crafttweaker"));
@@ -386,40 +309,19 @@ public final class GuideBooks{
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
 			//MAGIC
-			createPages(pages, "info.basic_magic", new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 1), "dustSalt", "dustSalt", "gemQuartz"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockPureQuartz, 1), "**", "**", '*', ModItems.pureQuartz), new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 4), ModBlocks.blockPureQuartz), new ShapedOreRecipe(null, new ItemStack(ModItems.lensArray, 2), "*&*", "@ $", "***", '*', ModItems.pureQuartz, '&', "gemEmerald", '@', "gemRuby", '$', "gemDiamond"));
-			entries.put(new ResourceLocation(Main.MODID, "basic_magic"), new EntryItemStack(pages, "Basics of Magic", new ItemStack(ModItems.pureQuartz, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "basic_magic"), new SmartEntry("Basics of Magic", new ItemStack(ModItems.pureQuartz, 1), "info.basic_magic", new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 1), "dustSalt", "dustSalt", "gemQuartz"), new ShapedOreRecipe(null, new ItemStack(ModBlocks.blockPureQuartz, 1), "**", "**", '*', ModItems.pureQuartz), new ShapelessOreRecipe(null, new ItemStack(ModItems.pureQuartz, 4), ModBlocks.blockPureQuartz), new ShapedOreRecipe(null, new ItemStack(ModItems.lensArray, 2), "*&*", "@ $", "***", '*', ModItems.pureQuartz, '&', "gemEmerald", '@', "gemRuby", '$', "gemDiamond")));
 			entries.put(new ResourceLocation(Main.MODID, "elements"), new SmartEntry("info.elements.name", new ItemStack(ModItems.lensArray, 1), "info.elements.preamble", true, ((Supplier<Object>) () -> {NBTTagCompound elementTag = StoreNBTToClient.clientPlayerTag.getCompoundTag("elements"); Object[] out = new Object[elementTag.getKeySet().size() * 2]; int arrayIndex = 0; for(int i = EnumMagicElements.values().length - 1; i >= 0; i--){EnumMagicElements elem = EnumMagicElements.values()[i]; if(elementTag.hasKey(elem.name())){out[arrayIndex++] = "info.elements." + elem.name().toLowerCase() + (elem == EnumMagicElements.TIME ? !ModConfig.getConfigBool(ModConfig.allowTimeBeam, true) ? ".dis" : "" : ""); out[arrayIndex++] = true;}} return out;})));
-			createPages(pages, "info.color_chart", new ShapedOreRecipe(null, new ItemStack(ModBlocks.colorChart, 1), "RGB", "^^^", "___", '_', "slabWood", '^', "paper", 'R', "dyeRed", 'G', "dyeLime", 'B', "dyeBlue"));
-			entries.put(new ResourceLocation(Main.MODID, "color_chart"), new EntryItemStack(pages, "Discovering Elements", new ItemStack(ModBlocks.colorChart, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.arcane_extractor", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneExtractor, 1), "***", "*# ", "***", '*', "stone", '#', ModItems.lensArray));
-			entries.put(new ResourceLocation(Main.MODID, "arcane_extractor"), new EntryItemStack(pages, "Arcane Extractor", new ItemStack(ModBlocks.arcaneExtractor, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.quartz_stabilizer", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " * ", "*&*", "***", '*', ModItems.pureQuartz, '&', ModItems.lensArray), new ShapedOreRecipe(null, new ItemStack(ModBlocks.largeQuartzStabilizer, 1), "***", "*&*", "***", '*', ModItems.pureQuartz, '&', ModBlocks.smallQuartzStabilizer), new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " & ", "***", '&', ModItems.luminescentQuartz, '*', ModItems.pureQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "quartz_stabilizer"), new EntryItemStack(pages, "Quartz Stabilizer", new ItemStack(ModBlocks.smallQuartzStabilizer, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.lens_holder", new ShapedOreRecipe(null, new ItemStack(ModBlocks.lensHolder, 1), "***", "*&*", "***", '*', "stone", '&', ModItems.pureQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "lens_holder"), new EntryItemStack(pages, "Lens Holder", new ItemStack(ModBlocks.lensHolder, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.arcane_reflector", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneReflector, 1), "*^*", '*', "stone", '^', ModItems.pureQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "arcane_reflector"), new EntryItemStack(pages, "Arcane Reflector", new ItemStack(ModBlocks.arcaneReflector, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.beam_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beamSplitterBasic, 1), "*^*", "*&*", "*^*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.beamSplitter, 1), ModBlocks.beamSplitterBasic, "dustRedstone", "dustRedstone", "dustRedstone"));
-			entries.put(new ResourceLocation(Main.MODID, "beam_splitter"), new EntryItemStack(pages, "Beam Splitter", new ItemStack(ModBlocks.beamSplitter, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.crystalline_prism", new ShapedOreRecipe(null, new ItemStack(ModBlocks.crystallinePrism, 1), "*^*", "^&^", "*&*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray));
-			entries.put(new ResourceLocation(Main.MODID, "crystalline_prism"), new EntryItemStack(pages, "Crystalline Prism", new ItemStack(ModBlocks.crystallinePrism, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.crystal_master_axis", new ShapedOreRecipe(null, ModBlocks.crystalMasterAxis, "*&*", "*#*", "***", '*', ModItems.pureQuartz, '#', ModBlocks.masterAxis, '&', ModItems.lensArray));
-			entries.put(new ResourceLocation(Main.MODID, "crystal_master_axis"), new EntryItemStack(pages, "Crystalline Master Axis", new ItemStack(ModBlocks.crystalMasterAxis, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.void", new ShapedOreRecipe(null, new ItemStack(ModItems.voidCrystal, 1), "*#*", "###", "*#*", '*', Items.DRAGON_BREATH, '#', ModItems.pureQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "void"), new EntryItemStack(pages, "Void", new ItemStack(ModItems.voidCrystal, 1), true));
-			pages = new ArrayList<IPage>();
-			createPages(pages, "info.beacon_harness", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beaconHarness, 1), "*&*", "&^&", "*&*", '*', ModItems.pureQuartz, '&', ModItems.lensArray, '^', ModItems.luminescentQuartz));
-			entries.put(new ResourceLocation(Main.MODID, "beacon_harness"), new EntryItemStack(pages, "Beacon Harness", new ItemStack(ModBlocks.beaconHarness, 1), true));
-			pages = new ArrayList<IPage>();
+			entries.put(new ResourceLocation(Main.MODID, "color_chart"), new SmartEntry("Discovering Elements", new ItemStack(ModBlocks.colorChart, 1), "info.color_chart", new ShapedOreRecipe(null, new ItemStack(ModBlocks.colorChart, 1), "RGB", "^^^", "___", '_', "slabWood", '^', "paper", 'R', "dyeRed", 'G', "dyeLime", 'B', "dyeBlue")));
+			entries.put(new ResourceLocation(Main.MODID, "arcane_extractor"), new SmartEntry("Arcane Extractor", new ItemStack(ModBlocks.arcaneExtractor, 1), "info.arcane_extractor", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneExtractor, 1), "***", "*# ", "***", '*', "stone", '#', ModItems.lensArray)));
+			entries.put(new ResourceLocation(Main.MODID, "quartz_stabilizer"), new SmartEntry("Quartz Stabilizer", new ItemStack(ModBlocks.smallQuartzStabilizer, 1), "info.quartz_stabilizer", new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " * ", "*&*", "***", '*', ModItems.pureQuartz, '&', ModItems.lensArray), new ShapedOreRecipe(null, new ItemStack(ModBlocks.largeQuartzStabilizer, 1), "***", "*&*", "***", '*', ModItems.pureQuartz, '&', ModBlocks.smallQuartzStabilizer), new ShapedOreRecipe(null, new ItemStack(ModBlocks.smallQuartzStabilizer, 1), " & ", "***", '&', ModItems.luminescentQuartz, '*', ModItems.pureQuartz)));
+			entries.put(new ResourceLocation(Main.MODID, "lens_holder"), new SmartEntry("Lens Holder", new ItemStack(ModBlocks.lensHolder, 1), "info.lens_holder", new ShapedOreRecipe(null, new ItemStack(ModBlocks.lensHolder, 1), "***", "*&*", "***", '*', "stone", '&', ModItems.pureQuartz)));
+			entries.put(new ResourceLocation(Main.MODID, "arcane_reflector"), new SmartEntry("Arcane Reflector", new ItemStack(ModBlocks.arcaneReflector, 1), "info.arcane_reflector", new ShapedOreRecipe(null, new ItemStack(ModBlocks.arcaneReflector, 1), "*^*", '*', "stone", '^', ModItems.pureQuartz)));
+			entries.put(new ResourceLocation(Main.MODID, "beam_splitter"), new SmartEntry("Beam Splitter", new ItemStack(ModBlocks.beamSplitter, 1), "info.beam_splitter", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beamSplitterBasic, 1), "*^*", "*&*", "*^*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray), new ShapelessOreRecipe(null, new ItemStack(ModBlocks.beamSplitter, 1), ModBlocks.beamSplitterBasic, "dustRedstone", "dustRedstone", "dustRedstone")));
+			entries.put(new ResourceLocation(Main.MODID, "crystalline_prism"), new SmartEntry("Crystalline Prism", new ItemStack(ModBlocks.crystallinePrism, 1), "info.crystalline_prism", new ShapedOreRecipe(null, new ItemStack(ModBlocks.crystallinePrism, 1), "*^*", "^&^", "*&*", '*', ModItems.pureQuartz, '^', ModItems.luminescentQuartz, '&', ModItems.lensArray)));
+			entries.put(new ResourceLocation(Main.MODID, "crystal_master_axis"), new SmartEntry("Crystalline Master Axis", new ItemStack(ModBlocks.crystalMasterAxis, 1), "info.crystal_master_axis", new ShapedOreRecipe(null, ModBlocks.crystalMasterAxis, "*&*", "*#*", "***", '*', ModItems.pureQuartz, '#', ModBlocks.masterAxis, '&', ModItems.lensArray)));
+			entries.put(new ResourceLocation(Main.MODID, "void"), new SmartEntry("Void", new ItemStack(ModItems.voidCrystal, 1), "info.void", new ShapedOreRecipe(null, new ItemStack(ModItems.voidCrystal, 1), "*#*", "###", "*#*", '*', Items.DRAGON_BREATH, '#', ModItems.pureQuartz)));
+			entries.put(new ResourceLocation(Main.MODID, "beacon_harness"), new SmartEntry("Beacon Harness", new ItemStack(ModBlocks.beaconHarness, 1), "info.beacon_harness", new ShapedOreRecipe(null, new ItemStack(ModBlocks.beaconHarness, 1), "*&*", "&^&", "*&*", '*', ModItems.pureQuartz, '&', ModItems.lensArray, '^', ModItems.luminescentQuartz)));
+
 
 			categories.add(new CategoryItemStack(entries, "Magic", new ItemStack(ModItems.lensArray, 1)));
 			entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
@@ -525,30 +427,4 @@ public final class GuideBooks{
 		}
 	}
 
-	/**
-	 * @deprecated Use a {@link SmartEntry} instead.
-	 */
-	@Deprecated
-	private static void createPages(ArrayList<IPage> pages, Object... parts){
-		for(Object obj : parts){
-			if(obj instanceof String){
-				//By default, pages localize by themselves. However, it is necessary to localize them on initialization for page splitting to work properly,
-				//because the built in method doesn't support § and I have to make my own. This means reloading lang files in-game WILL NOT WORK for the guide
-				//Also, the lang files need to be encoded in UTF-8 to support §.
-				createTextPages(pages, TextHelper.localize((String) obj));
-			}else if(obj instanceof Pair && ((Pair<?, ?>) obj).getLeft() instanceof String && ((Pair<?, ?>) obj).getRight() instanceof Object[]){
-				@SuppressWarnings("unchecked")
-				Pair<String, Object[]> pair = ((Pair<String, Object[]>) obj);
-				createTextPages(pages, TextHelper.localize(pair.getLeft(), pair.getRight()));
-			}else if(obj instanceof ItemStack){
-				pages.add(new PageFurnaceRecipe((ItemStack) obj));
-			}else if(obj instanceof ResourceLocation){
-				pages.add(new PageImage((ResourceLocation) obj));
-			}else if(obj instanceof IRecipe){
-				pages.add(new PageIRecipe((IRecipe) obj));
-			}else{
-				throw new IllegalArgumentException("INVALID OBJECT FOR PAGE BUILDING!");
-			}
-		}
-	}
 }
