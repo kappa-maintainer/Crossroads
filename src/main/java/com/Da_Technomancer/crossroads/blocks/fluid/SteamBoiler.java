@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.fluid;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.MiscOp;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -32,7 +33,7 @@ public class SteamBoiler extends BlockContainer{
 	public SteamBoiler(){
 		super(Material.IRON);
 		String name = "steam_boiler";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.alchemy.ReagentStack;
 import com.Da_Technomancer.crossroads.items.ModItems;
 
@@ -23,7 +24,7 @@ public class CustomMaterial extends Item{
 		String name = "custom_material";
 		maxStackSize = 1;
 		hasSubtypes = true;
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		ModItems.toRegister.add(this);
 		ModItems.itemAddQue(this);

@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.technomancy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.Da_Technomancer.crossroads.tileentities.technomancy.ChunkUnlockerTileEntity;
@@ -16,7 +17,7 @@ public class ChunkUnlocker extends BlockContainer{
 	public ChunkUnlocker(){
 		super(Material.IRON);
 		String name = "chunk_unlocker";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

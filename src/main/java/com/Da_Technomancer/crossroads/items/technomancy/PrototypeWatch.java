@@ -54,7 +54,7 @@ public class PrototypeWatch extends MagicUsingItem{
 
 	public PrototypeWatch(){
 		String name = "prototype_watch";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);
@@ -186,16 +186,16 @@ public class PrototypeWatch extends MagicUsingItem{
 					return;
 				}
 
-				int energy = nbt.getInteger(EnumMagicElements.ENERGY.name());
-				int potential = nbt.getInteger(EnumMagicElements.POTENTIAL.name());
-				int stability = nbt.getInteger(EnumMagicElements.STABILITY.name());
-				int voi = nbt.getInteger(EnumMagicElements.VOID.name());
-				if(energy <= cageNbt.getInteger("stored_" + EnumMagicElements.ENERGY.name()) && potential <= cageNbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name()) && stability <= cageNbt.getInteger("stored_" + EnumMagicElements.STABILITY.name()) && voi <= cageNbt.getInteger("stored_" + EnumMagicElements.VOID.name())){
+				int energy = nbt.getInteger(EnumMagicElements.ENERGY.getName());
+				int potential = nbt.getInteger(EnumMagicElements.POTENTIAL.getName());
+				int stability = nbt.getInteger(EnumMagicElements.STABILITY.getName());
+				int voi = nbt.getInteger(EnumMagicElements.VOID.getName());
+				if(energy <= cageNbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName()) && potential <= cageNbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName()) && stability <= cageNbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName()) && voi <= cageNbt.getInteger("stored_" + EnumMagicElements.VOID.getName())){
 					if(energy + potential + stability + voi > 0){
-						cageNbt.setInteger("stored_" + EnumMagicElements.ENERGY.name(), cageNbt.getInteger("stored_" + EnumMagicElements.ENERGY.name()) - energy);
-						cageNbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.name(), cageNbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name()) - potential);
-						cageNbt.setInteger("stored_" + EnumMagicElements.STABILITY.name(), cageNbt.getInteger("stored_" + EnumMagicElements.STABILITY.name()) - stability);
-						cageNbt.setInteger("stored_" + EnumMagicElements.VOID.name(), cageNbt.getInteger("stored_" + EnumMagicElements.VOID.name()) - voi);
+						cageNbt.setInteger("stored_" + EnumMagicElements.ENERGY.getName(), cageNbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName()) - energy);
+						cageNbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.getName(), cageNbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName()) - potential);
+						cageNbt.setInteger("stored_" + EnumMagicElements.STABILITY.getName(), cageNbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName()) - stability);
+						cageNbt.setInteger("stored_" + EnumMagicElements.VOID.getName(), cageNbt.getInteger("stored_" + EnumMagicElements.VOID.getName()) - voi);
 						port.getCapPrototype(Capabilities.MAGIC_HANDLER_CAPABILITY).setMagic(new MagicUnit(energy, potential, stability, voi));
 					}
 				}
@@ -327,25 +327,25 @@ public class PrototypeWatch extends MagicUsingItem{
 							offhand.setTagCompound(new NBTTagCompound());
 						}
 						NBTTagCompound nbt = offhand.getTagCompound();
-						int energy = nbt.getInteger("stored_" + EnumMagicElements.ENERGY.name());
+						int energy = nbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName());
 						energy += mag.getEnergy();
 						energy = Math.min(1024, energy);
-						nbt.setInteger("stored_" + EnumMagicElements.ENERGY.name(), energy);
+						nbt.setInteger("stored_" + EnumMagicElements.ENERGY.getName(), energy);
 
-						int potential = nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name());
+						int potential = nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName());
 						potential += mag.getPotential();
 						potential = Math.min(1024, potential);
-						nbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.name(), potential);
+						nbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.getName(), potential);
 
-						int stability = nbt.getInteger("stored_" + EnumMagicElements.STABILITY.name());
+						int stability = nbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName());
 						stability += mag.getStability();
 						stability = Math.min(1024, stability);
-						nbt.setInteger("stored_" + EnumMagicElements.STABILITY.name(), stability);
+						nbt.setInteger("stored_" + EnumMagicElements.STABILITY.getName(), stability);
 
-						int voi = nbt.getInteger("stored_" + EnumMagicElements.VOID.name());
+						int voi = nbt.getInteger("stored_" + EnumMagicElements.VOID.getName());
 						voi += mag.getVoid();
 						voi = Math.min(1024, voi);
-						nbt.setInteger("stored_" + EnumMagicElements.VOID.name(), voi);
+						nbt.setInteger("stored_" + EnumMagicElements.VOID.getName(), voi);
 					}
 				}
 			}

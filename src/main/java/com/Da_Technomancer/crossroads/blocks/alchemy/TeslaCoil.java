@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.alchemy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -29,7 +30,7 @@ public class TeslaCoil extends BlockContainer{
 	public TeslaCoil(){
 		super(Material.IRON);
 		String name = "tesla_coil";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(2);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

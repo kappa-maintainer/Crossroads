@@ -27,7 +27,7 @@ public class Phial extends AbstractGlassware{
 		String name = "phial";
 		maxStackSize = 1;
 		hasSubtypes = true;
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);
@@ -42,7 +42,7 @@ public class Phial extends AbstractGlassware{
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack){
-		return stack.getMetadata() == 1 ? "item.phial_cryst" : "item.phial_glass";
+		return stack.getMetadata() == 1 ? "item.crossroads.phial_cryst" : "item.crossroads.phial_glass";
 	}
 	
 	@Override

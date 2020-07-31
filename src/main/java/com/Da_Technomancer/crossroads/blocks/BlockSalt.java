@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.Da_Technomancer.crossroads.items.crafting.ModCrafting;
 
@@ -36,7 +37,7 @@ public class BlockSalt extends BlockFalling{
 		super(Material.SAND);
 		setHarvestLevel("shovel", 0);
 		String name = "block_salt";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(.5F);

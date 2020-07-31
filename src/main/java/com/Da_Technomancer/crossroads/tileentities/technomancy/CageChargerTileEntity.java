@@ -27,7 +27,7 @@ public class CageChargerTileEntity extends TileEntity implements IInfoTE{
 				cage.setTagCompound(new NBTTagCompound());
 			}
 			NBTTagCompound nbt = cage.getTagCompound();
-			chat.add("Stored: [Energy: " + nbt.getInteger("stored_" + EnumMagicElements.ENERGY.name()) + ", Potential: " + nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name()) + ", Stability: " + nbt.getInteger("stored_" + EnumMagicElements.STABILITY.name()) + ", Void: " + nbt.getInteger("stored_" + EnumMagicElements.VOID.name()) + "]");
+			chat.add("Stored: [Energy: " + nbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName()) + ", Potential: " + nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName()) + ", Stability: " + nbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName()) + ", Void: " + nbt.getInteger("stored_" + EnumMagicElements.VOID.getName()) + "]");
 		}
 	}
 	
@@ -91,25 +91,25 @@ public class CageChargerTileEntity extends TileEntity implements IInfoTE{
 					cage.setTagCompound(new NBTTagCompound());
 				}
 				NBTTagCompound nbt = cage.getTagCompound();
-				int energy = nbt.getInteger("stored_" + EnumMagicElements.ENERGY.name());
+				int energy = nbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName());
 				energy += mag.getEnergy();
 				energy = Math.min(1024, energy);
-				nbt.setInteger("stored_" + EnumMagicElements.ENERGY.name(), energy);
+				nbt.setInteger("stored_" + EnumMagicElements.ENERGY.getName(), energy);
 				
-				int potential = nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name());
+				int potential = nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName());
 				potential += mag.getPotential();
 				potential = Math.min(1024, potential);
-				nbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.name(), potential);
+				nbt.setInteger("stored_" + EnumMagicElements.POTENTIAL.getName(), potential);
 				
-				int stability = nbt.getInteger("stored_" + EnumMagicElements.STABILITY.name());
+				int stability = nbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName());
 				stability += mag.getStability();
 				stability = Math.min(1024, stability);
-				nbt.setInteger("stored_" + EnumMagicElements.STABILITY.name(), stability);
+				nbt.setInteger("stored_" + EnumMagicElements.STABILITY.getName(), stability);
 				
-				int voi = nbt.getInteger("stored_" + EnumMagicElements.VOID.name());
+				int voi = nbt.getInteger("stored_" + EnumMagicElements.VOID.getName());
 				voi += mag.getVoid();
 				voi = Math.min(1024, voi);
-				nbt.setInteger("stored_" + EnumMagicElements.VOID.name(), voi);
+				nbt.setInteger("stored_" + EnumMagicElements.VOID.getName(), voi);
 			}
 		}
 	}

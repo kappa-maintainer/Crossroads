@@ -101,7 +101,7 @@ public class MagicUnit{
 	@Override
 	public String toString(){
 		Color col = getRGB();
-		return "R: " + col.getRed() + ", G: " + col.getGreen() + ", B: " + col.getBlue() + ", Element: " + EnumMagicElements.getElement(this).toString() + ", Energy: " + energy + ", Potential: " + potential + ", Stability: " + stability + ", Void: " + voi;
+		return "R: " + col.getRed() + ", G: " + col.getGreen() + ", B: " + col.getBlue() + ", Element: " + EnumMagicElements.getElement(this).getName() + ", Energy: " + energy + ", Potential: " + potential + ", Stability: " + stability + ", Void: " + voi;
 	}
 
 	@Override

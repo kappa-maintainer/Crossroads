@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items.technomancy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.entity.EntityFlyingMachine;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ public class FlyingMachine extends Item{
 	public FlyingMachine(){
 		String name = "flying_machine";
 		maxStackSize = 1;
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

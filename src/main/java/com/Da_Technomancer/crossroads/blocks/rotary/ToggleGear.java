@@ -44,7 +44,7 @@ public class ToggleGear extends BlockContainer{
 		super(Material.IRON);
 		this.type = type;
 		String name = "toggle_gear_" + type.toString().toLowerCase();
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAG_GEAR);
 		setHardness(3);

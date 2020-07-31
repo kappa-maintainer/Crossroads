@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.magic;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.API.magic.BeamRenderTEBase;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
@@ -38,7 +39,7 @@ public class LensHolder extends BlockContainer{
 	public LensHolder(){
 		super(Material.ROCK);
 		String name = "lens_holder";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

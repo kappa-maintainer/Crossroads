@@ -2,6 +2,7 @@ package com.Da_Technomancer.crossroads.blocks;
 
 import java.util.Random;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Capabilities;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -41,7 +42,7 @@ public class Ratiator extends BlockContainer{
 	protected Ratiator(){
 		super(Material.CIRCUITS);
 		String name = "ratiator";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(0);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

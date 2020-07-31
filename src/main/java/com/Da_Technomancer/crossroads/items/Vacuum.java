@@ -14,6 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
+import com.Da_Technomancer.crossroads.Main;
+
 public class Vacuum extends Item{
 
 	private static final int RANGE = 5;
@@ -21,7 +23,7 @@ public class Vacuum extends Item{
 
 	public Vacuum(){
 		String name = "vacuum";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		maxStackSize = 1;

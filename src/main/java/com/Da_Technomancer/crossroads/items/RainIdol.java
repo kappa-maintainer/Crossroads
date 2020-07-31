@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.ModConfig;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,7 +23,7 @@ public class RainIdol extends Item{
 
 	protected RainIdol(){
 		String name = "rain_idol";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		maxStackSize = 1;

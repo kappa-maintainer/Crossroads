@@ -8,13 +8,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+
+import com.Da_Technomancer.crossroads.Main;
+
 import java.util.List;
 
 public class FluidGauge extends Item{
 
 	public FluidGauge(){
 		String name = "fluid_gauge";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		ModItems.toRegister.add(this);
 		ModItems.itemAddQue(this);

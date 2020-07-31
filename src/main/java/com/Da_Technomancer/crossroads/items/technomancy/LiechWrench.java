@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items.technomancy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.material.Material;
@@ -18,7 +19,7 @@ public class LiechWrench extends Item{
 
 	public LiechWrench(){
 		String name = "liech_wrench";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHarvestLevel("pickaxe", 1);

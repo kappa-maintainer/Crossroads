@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Capabilities;
 import com.Da_Technomancer.crossroads.API.heat.IHeatHandler;
 
@@ -16,7 +17,7 @@ public class DebugHeatWriter extends Item{
 
 	public DebugHeatWriter(){
 		String name = "debug_heat_writer";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

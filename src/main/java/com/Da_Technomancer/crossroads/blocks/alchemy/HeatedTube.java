@@ -46,7 +46,7 @@ public class HeatedTube extends BlockContainer{
 	public HeatedTube(){
 		super(Material.GLASS);
 		String name = "heated_tube";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.technomancy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.blocks.Ratiator;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -21,7 +22,7 @@ public class MechanicalArm extends BlockContainer{
 	public MechanicalArm(){
 		super(Material.IRON);
 		String name = "mechanical_arm";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

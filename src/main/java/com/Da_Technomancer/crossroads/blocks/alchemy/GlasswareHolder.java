@@ -34,7 +34,7 @@ public class GlasswareHolder extends BlockContainer{
 	public GlasswareHolder(){
 		super(Material.IRON);
 		String name = "glassware_holder";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(2);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

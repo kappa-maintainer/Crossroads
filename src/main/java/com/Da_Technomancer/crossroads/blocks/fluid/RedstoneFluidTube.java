@@ -59,7 +59,7 @@ public class RedstoneFluidTube extends BlockContainer implements IAdvConduitMode
 	public RedstoneFluidTube(){
 		super(Material.IRON);
 		String name = "redstone_fluid_tube";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

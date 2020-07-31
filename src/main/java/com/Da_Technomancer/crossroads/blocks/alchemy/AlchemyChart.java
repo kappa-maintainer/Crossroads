@@ -31,7 +31,7 @@ public class AlchemyChart extends Block{
 	public AlchemyChart(){
 		super(Material.WOOD);
 		String name = "alchemy_chart";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

@@ -37,7 +37,7 @@ public class LargeGear extends Item{
 
 	public LargeGear(GearTypes typeIn){
 		String name = "large_gear_" + typeIn.toString().toLowerCase();
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		type = typeIn;
 		setCreativeTab(ModItems.TAG_GEAR);

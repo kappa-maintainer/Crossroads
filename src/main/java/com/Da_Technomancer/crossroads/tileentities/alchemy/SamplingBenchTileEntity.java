@@ -75,7 +75,7 @@ public class SamplingBenchTileEntity extends TileEntity{
 
 	@Override
 	public ITextComponent getDisplayName(){
-		return new TextComponentTranslation("container.sampling_bench");
+		return new TextComponentTranslation("container.crossroads.sampling_bench");
 	}
 
 	private class WrapperInv implements IInventory{

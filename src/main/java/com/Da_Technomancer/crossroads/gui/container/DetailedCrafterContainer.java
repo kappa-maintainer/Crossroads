@@ -13,6 +13,7 @@ import com.Da_Technomancer.crossroads.items.itemSets.GearFactory;
 import com.google.common.collect.Lists;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -127,7 +128,7 @@ public class DetailedCrafterContainer extends Container{
 	private static boolean passesAlchemyCriteria(NBTTagCompound elementTag){
 		//In order to unlock alchemy, the player needs to have discovered all elements other than void and time. (Discovering void and/or time doesn't hurt)
 		for(EnumMagicElements element : EnumMagicElements.values()){
-			if(element != EnumMagicElements.TIME && element != EnumMagicElements.VOID && element != EnumMagicElements.NO_MATCH && !elementTag.getBoolean(element.name())){
+			if(element != EnumMagicElements.TIME && element != EnumMagicElements.VOID && element != EnumMagicElements.NO_MATCH && !elementTag.getBoolean(element.getName())){
 				return false;
 			}
 		}

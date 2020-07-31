@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.fluid;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -35,7 +36,7 @@ public class FluidTank extends BlockContainer{
 	public FluidTank(){
 		super(Material.IRON);
 		String name = "fluid_tank";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setSoundType(SoundType.METAL);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

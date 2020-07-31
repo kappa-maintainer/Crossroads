@@ -41,7 +41,7 @@ public abstract class MagicUsingItem extends Item{
 			}
 			if(elemChanged != null && player instanceof EntityPlayer){
 				player.world.playSound((EntityPlayer) player, player.getPosition(), SoundEvents.UI_BUTTON_CLICK, SoundCategory.PLAYERS, 5, (float) Math.random());
-				ModPackets.network.sendToServer(new SendMagicItemToServer(elemChanged.name(), player.isSneaking()));
+				ModPackets.network.sendToServer(new SendMagicItemToServer(elemChanged.getName(), player.isSneaking()));
 			}
 		}
 	}
@@ -59,10 +59,10 @@ public abstract class MagicUsingItem extends Item{
 		if(nbt == null){
 			nbt = new NBTTagCompound();
 		}
-		tooltip.add("Energy usage: " + nbt.getInteger(EnumMagicElements.ENERGY.name()));
-		tooltip.add("Potential usage: " + nbt.getInteger(EnumMagicElements.POTENTIAL.name()));
-		tooltip.add("Stability usage: " + nbt.getInteger(EnumMagicElements.STABILITY.name()));
-		tooltip.add("Void usage: " + nbt.getInteger(EnumMagicElements.VOID.name()));
+		tooltip.add("Energy usage: " + nbt.getInteger(EnumMagicElements.ENERGY.getName()));
+		tooltip.add("Potential usage: " + nbt.getInteger(EnumMagicElements.POTENTIAL.getName()));
+		tooltip.add("Stability usage: " + nbt.getInteger(EnumMagicElements.STABILITY.getName()));
+		tooltip.add("Void usage: " + nbt.getInteger(EnumMagicElements.VOID.getName()));
 	}
 	
 	@Override

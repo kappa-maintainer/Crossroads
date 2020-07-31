@@ -34,7 +34,7 @@ public class ChargingStand extends BlockContainer{
 	public ChargingStand(){
 		super(Material.IRON);
 		String name = "charging_stand";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(2);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

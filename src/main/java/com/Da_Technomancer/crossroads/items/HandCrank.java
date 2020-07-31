@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Capabilities;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ public class HandCrank extends Item{
 
 	public HandCrank(){
 		String name = "hand_crank";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

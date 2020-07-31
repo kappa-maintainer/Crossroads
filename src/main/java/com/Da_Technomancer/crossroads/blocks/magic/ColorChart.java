@@ -33,7 +33,7 @@ public class ColorChart extends Block{
 	public ColorChart(){
 		super(Material.WOOD);
 		String name = "color_chart";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

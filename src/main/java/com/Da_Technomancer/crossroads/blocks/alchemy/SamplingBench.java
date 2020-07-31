@@ -35,7 +35,7 @@ public class SamplingBench extends BlockContainer{
 	public SamplingBench(){
 		super(Material.WOOD);
 		String name = "sampling_bench";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(2);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

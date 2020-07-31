@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.magic;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
@@ -28,7 +29,7 @@ public class CrystalMasterAxis extends BlockContainer{
 	public CrystalMasterAxis(){
 		super(Material.ROCK);
 		String name = "master_axis_crystal";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

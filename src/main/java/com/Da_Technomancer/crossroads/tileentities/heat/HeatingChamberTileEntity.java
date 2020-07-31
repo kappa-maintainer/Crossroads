@@ -257,7 +257,7 @@ public class HeatingChamberTileEntity extends AbstractInventory implements ITick
 
 	@Override
 	public String getName(){
-		return "container.heating_chamber";
+		return "container.crossroads.heating_chamber";
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class ReagentTank extends BlockContainer{
 	public ReagentTank(){
 		super(Material.GLASS);
 		String name = "reagent_tank";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

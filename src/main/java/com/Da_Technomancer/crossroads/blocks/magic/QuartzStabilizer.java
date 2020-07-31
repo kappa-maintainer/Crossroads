@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.magic;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.API.magic.BeamRenderTE;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
@@ -27,7 +28,7 @@ public class QuartzStabilizer extends BlockContainer{
 		super(Material.ROCK);
 		this.large = large;
 		String name = (large ? "large" : "small") + "_quartz_stabilizer";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

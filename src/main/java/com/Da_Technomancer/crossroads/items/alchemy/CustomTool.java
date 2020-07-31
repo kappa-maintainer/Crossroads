@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -34,7 +35,7 @@ public class CustomTool extends Item{
 	public CustomTool(String toolClass){
 		this.toolClass = toolClass;
 		String name = "custom_tool_" + toolClass;
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setMaxStackSize(1);
 		//setCreativeTab(ModItems.TAB_CROSSROADS);

@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.Da_Technomancer.crossroads.tileentities.HamsterWheelTileEntity;
@@ -34,7 +35,7 @@ public class HamsterWheel extends BlockContainer{
 	protected HamsterWheel(){
 		super(Material.IRON);
 		String name = "hamster_wheel";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setHardness(2);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

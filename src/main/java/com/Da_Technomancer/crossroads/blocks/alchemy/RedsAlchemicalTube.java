@@ -68,7 +68,7 @@ public class RedsAlchemicalTube extends BlockContainer implements IAdvConduitMod
 	public RedsAlchemicalTube(){
 		super(Material.GLASS);
 		String name = "reds_alch_tube";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

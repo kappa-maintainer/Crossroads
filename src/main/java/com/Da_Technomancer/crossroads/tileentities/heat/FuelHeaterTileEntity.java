@@ -302,7 +302,7 @@ public class FuelHeaterTileEntity extends AbstractInventory implements ITickable
 
 	@Override
 	public String getName(){
-		return "container.fuel_heater";
+		return "container.crossroads.fuel_heater";
 	}
 
 	@Override

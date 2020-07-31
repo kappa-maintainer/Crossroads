@@ -40,7 +40,7 @@ public class FlowLimiter extends BlockContainer{
 	public FlowLimiter(){
 		super(Material.GLASS);
 		String name = "flow_limiter";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

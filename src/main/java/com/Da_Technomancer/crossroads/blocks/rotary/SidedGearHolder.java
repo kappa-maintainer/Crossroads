@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.Da_Technomancer.crossroads.CommonProxy;
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Capabilities;
 import com.Da_Technomancer.crossroads.API.MiscOp;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
@@ -52,7 +53,7 @@ public class SidedGearHolder extends BlockContainer{
 	public SidedGearHolder(){
 		super(Material.IRON);
 		String name = "sided_gear_holder";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(1);
 		setSoundType(SoundType.METAL);

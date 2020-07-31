@@ -3,6 +3,8 @@ package com.Da_Technomancer.crossroads.API.alchemy;
 import com.Da_Technomancer.crossroads.API.effects.alchemy.IAlchEffect;
 import com.Da_Technomancer.crossroads.API.magic.MagicUnit;
 import com.google.common.collect.ImmutableList;
+
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -122,6 +124,6 @@ public class ElementalReagent implements IElementReagent{
 
 	@Override
 	public String getName(){
-		return name;
+		return I18n.format(name);
 	}	
 }

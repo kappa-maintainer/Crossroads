@@ -67,7 +67,7 @@ public class AlchemicalTube extends BlockContainer implements IAdvConduitModel{
 	public AlchemicalTube(){
 		super(Material.GLASS);
 		String name = "alch_tube";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

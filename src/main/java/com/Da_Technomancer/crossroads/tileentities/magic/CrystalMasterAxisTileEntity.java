@@ -45,7 +45,7 @@ public class CrystalMasterAxisTileEntity extends TileEntity implements ITickable
 
 	@Override
 	public void addInfo(ArrayList<String> chat, EntityPlayer player, @Nullable EnumFacing side){
-		chat.add("Element: " + (currentElement == null ? "NONE" : currentElement.toString() + (voi ? " (VOID), " : ", ") + "Time: " + time));
+		chat.add("Element: " + (currentElement == null ? "NONE" : currentElement.getName() + (voi ? " (VOID), " : ", ") + "Time: " + time));
 	}
 
 	private ArrayList<IAxleHandler> rotaryMembers = new ArrayList<IAxleHandler>();
@@ -138,7 +138,7 @@ public class CrystalMasterAxisTileEntity extends TileEntity implements ITickable
 		nbt.setInteger("time", time);
 		nbt.setBoolean("voi", voi);
 		if(currentElement != null){
-			nbt.setString("elem", currentElement.name());
+			nbt.setString("elem", currentElement.getName());
 		}
 		return nbt;
 	}

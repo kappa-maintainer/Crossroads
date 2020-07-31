@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items.alchemy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.entity.EntityNitro;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import net.minecraft.block.BlockDispenser;
@@ -49,7 +50,7 @@ public class Nitroglycerin extends Item{
 
 	public Nitroglycerin(){
 		String name = "nitroglycerin";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

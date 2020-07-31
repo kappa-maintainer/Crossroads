@@ -43,7 +43,7 @@ public class DiscoverElementCommand extends CommandBase{
 			for(EnumMagicElements element : EnumMagicElements.values()){
 				if(!nbt.hasKey(element.name()) && element != EnumMagicElements.NO_MATCH){
 					nbt.setBoolean(element.name(), true);
-					sender.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + element.toString()));
+					sender.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + element.getName()));
 				}
 			}
 			StoreNBTToClient.syncNBTToClient((EntityPlayerMP) sender, false);

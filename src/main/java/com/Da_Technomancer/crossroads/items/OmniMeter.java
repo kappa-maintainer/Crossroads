@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Capabilities;
 import com.Da_Technomancer.crossroads.API.IInfoTE;
 import com.Da_Technomancer.crossroads.API.MiscOp;
@@ -34,7 +35,7 @@ public class OmniMeter extends Item{
 
 	public OmniMeter(){
 		String name = "omnimeter";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);
@@ -84,7 +85,7 @@ public class OmniMeter extends Item{
 
 								if(!nbt.hasKey(EnumMagicElements.getElement(check).name())){
 									nbt.setBoolean(EnumMagicElements.getElement(check).name(), true);
-									playerIn.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + EnumMagicElements.getElement(check).toString()));
+									playerIn.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + EnumMagicElements.getElement(check).getName()));
 									StoreNBTToClient.syncNBTToClient((EntityPlayerMP) playerIn, false);
 								}
 

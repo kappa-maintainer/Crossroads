@@ -36,7 +36,7 @@ public class FluidInjector extends BlockContainer{
 	public FluidInjector(){
 		super(Material.GLASS);
 		String name = "fluid_injector";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

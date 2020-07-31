@@ -2,6 +2,7 @@ package com.Da_Technomancer.crossroads.blocks;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.Da_Technomancer.crossroads.items.crafting.ModCrafting;
 
@@ -38,7 +39,7 @@ public class BasicBlock extends Block{
 		if(tool != null && mineLevel != -2){
 			setHarvestLevel(tool, mineLevel);
 		}
-		setUnlocalizedName(unlocName);
+		setUnlocalizedName(Main.MODID + "." + unlocName);
 		setRegistryName(unlocName);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(hardness);

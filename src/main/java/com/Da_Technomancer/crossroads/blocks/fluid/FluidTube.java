@@ -58,7 +58,7 @@ public class FluidTube extends BlockContainer implements IAdvConduitModel{
 	public FluidTube(){
 		super(Material.IRON);
 		String name = "fluid_tube";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

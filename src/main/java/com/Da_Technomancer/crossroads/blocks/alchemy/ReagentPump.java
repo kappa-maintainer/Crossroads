@@ -31,7 +31,7 @@ public class ReagentPump extends BlockContainer{
 	public ReagentPump(){
 		super(Material.GLASS);
 		String name = "reagent_pump";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

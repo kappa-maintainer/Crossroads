@@ -25,7 +25,7 @@ public class PrototypingTable extends BlockContainer{
 	public PrototypingTable(){
 		super(Material.IRON);
 		String name = "prototyping_table";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

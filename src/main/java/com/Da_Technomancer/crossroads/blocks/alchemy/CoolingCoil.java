@@ -44,7 +44,7 @@ public class CoolingCoil extends BlockContainer{
 	public CoolingCoil(){
 		super(Material.GLASS);
 		String name = "cooling_coil";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
@@ -53,7 +53,7 @@ public class CoolingCoil extends BlockContainer{
 		Item item = new ItemBlock(this){
 			@Override
 			public String getUnlocalizedName(ItemStack stack){
-				return stack.getMetadata() == 1 ? "tile." + name + "_cryst" : "tile." + name + "_glass";
+				return stack.getMetadata() == 1 ? "tile." + Main.MODID + "." + name + "_cryst" : "tile." + Main.MODID + "." + name + "_glass";
 			}
 
 			@Override

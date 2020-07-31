@@ -49,7 +49,7 @@ public class PrototypePort extends BlockContainer{
 	public PrototypePort(){
 		super(Material.IRON);
 		String name = "prototype_port";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

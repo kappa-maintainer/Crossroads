@@ -11,6 +11,8 @@ import com.Da_Technomancer.crossroads.API.packets.SendFieldsToClient;
 import com.Da_Technomancer.crossroads.API.packets.StoreNBTToClient;
 import com.Da_Technomancer.crossroads.API.rotary.IAxleHandler;
 import com.Da_Technomancer.crossroads.API.technomancy.FieldWorldSavedData;
+
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
@@ -79,9 +81,9 @@ public class QuartzGoggleEffect implements IGoggleEffect{
 					MagicUnit check = mag[i];
 					if(check != null){
 						if(!nbt.hasKey(EnumMagicElements.getElement(check).name())){
-							nbt.setBoolean(EnumMagicElements.getElement(check).name(), true);
+							nbt.setBoolean(EnumMagicElements.getElement(check).getName(), true);
 							//Doesn't use deletion-chat as the element discovery notification shouldn't be wiped away in 1 tick.
-							player.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + EnumMagicElements.getElement(check).toString() + TextFormatting.RESET.toString()));
+							player.sendMessage(new TextComponentString(TextFormatting.BOLD.toString() + "New Element Discovered: " + EnumMagicElements.getElement(check).getName() + TextFormatting.RESET.toString()));
 							StoreNBTToClient.syncNBTToClient((EntityPlayerMP) player, false);
 						}
 						chat.add(EnumFacing.getFront(i).toString() + ": " + check.toString());

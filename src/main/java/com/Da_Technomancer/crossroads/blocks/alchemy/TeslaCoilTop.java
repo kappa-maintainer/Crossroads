@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.tileentities.alchemy.TeslaCoilTileEntity;
 
@@ -33,7 +34,7 @@ public class TeslaCoilTop extends Block{
 	public TeslaCoilTop(){
 		super(Material.IRON);
 		String name = "tesla_coil_top";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(2);
 		setSoundType(SoundType.METAL);

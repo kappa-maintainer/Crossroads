@@ -37,7 +37,7 @@ public class ReactionChamber extends BlockContainer{
 	public ReactionChamber(){
 		super(Material.GLASS);
 		String name = "reaction_chamber";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

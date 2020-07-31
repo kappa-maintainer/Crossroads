@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks.magic;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.API.magic.BeamRenderTE;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
@@ -26,7 +27,7 @@ public class CrystallinePrism extends BlockContainer{
 	public CrystallinePrism(){
 		super(Material.ROCK);
 		String name = "crystalline_prism";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

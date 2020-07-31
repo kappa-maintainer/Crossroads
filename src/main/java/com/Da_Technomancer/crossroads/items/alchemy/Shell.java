@@ -58,7 +58,7 @@ public class Shell extends AbstractGlassware{
 		String name = "shell";
 		maxStackSize = 1;
 		hasSubtypes = true;
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);
@@ -74,7 +74,7 @@ public class Shell extends AbstractGlassware{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack){
-		return stack.getMetadata() == 1 ? "item.shell_cryst" : "item.shell_glass";
+		return stack.getMetadata() == 1 ? "item.crossroads.shell_cryst" : "item.crossroads.shell_glass";
 	}
 
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){

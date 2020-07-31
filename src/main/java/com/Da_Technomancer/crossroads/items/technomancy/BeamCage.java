@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.magic.EnumMagicElements;
 import com.Da_Technomancer.crossroads.items.ModItems;
 
@@ -19,7 +20,7 @@ public class BeamCage extends Item{
 
 	public BeamCage(){
 		String name = "beam_cage";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		maxStackSize = 1;
 		setCreativeTab(ModItems.TAB_CROSSROADS);
@@ -34,9 +35,9 @@ public class BeamCage extends Item{
 		if(nbt == null){
 			nbt = new NBTTagCompound();
 		}
-		tooltip.add("Energy stored: " + nbt.getInteger("stored_" + EnumMagicElements.ENERGY.name()));
-		tooltip.add("Potential stored: " + nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.name()));
-		tooltip.add("Stability stored: " + nbt.getInteger("stored_" + EnumMagicElements.STABILITY.name()));
-		tooltip.add("Void stored: " + nbt.getInteger("stored_" + EnumMagicElements.VOID.name()));
+		tooltip.add("Energy stored: " + nbt.getInteger("stored_" + EnumMagicElements.ENERGY.getName()));
+		tooltip.add("Potential stored: " + nbt.getInteger("stored_" + EnumMagicElements.POTENTIAL.getName()));
+		tooltip.add("Stability stored: " + nbt.getInteger("stored_" + EnumMagicElements.STABILITY.getName()));
+		tooltip.add("Void stored: " + nbt.getInteger("stored_" + EnumMagicElements.VOID.getName()));
 	}
 }

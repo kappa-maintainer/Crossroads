@@ -30,7 +30,7 @@ public class Grindstone extends BlockContainer{
 	public Grindstone(){
 		super(Material.ROCK);
 		String name = "grindstone";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

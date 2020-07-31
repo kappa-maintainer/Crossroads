@@ -4,6 +4,8 @@ import com.Da_Technomancer.crossroads.API.effects.alchemy.IAlchEffect;
 import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.crafting.RecipePredicate;
 import com.google.common.collect.ImmutableList;
+
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -86,7 +88,7 @@ public class StaticReagent implements IReagent{
 
 	@Override
 	public String getName(){
-		return name;
+		return I18n.format(name);
 	}
 
 	@Override

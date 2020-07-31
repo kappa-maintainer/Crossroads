@@ -46,7 +46,7 @@ public class DensusPlate extends BlockContainer{
 	public DensusPlate(){
 		super(Material.IRON);
 		String name = "densus_plate";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

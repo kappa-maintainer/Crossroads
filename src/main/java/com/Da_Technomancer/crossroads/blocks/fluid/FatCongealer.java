@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.blocks.ModBlocks;
 import com.Da_Technomancer.crossroads.items.ModItems;
 import com.Da_Technomancer.crossroads.tileentities.fluid.FatCongealerTileEntity;
@@ -25,7 +26,7 @@ public class FatCongealer extends BlockContainer{
 	public FatCongealer(){
 		super(Material.IRON);
 		String name = "fat_congealer";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setSoundType(SoundType.METAL);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

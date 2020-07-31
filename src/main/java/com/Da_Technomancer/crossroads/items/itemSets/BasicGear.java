@@ -37,7 +37,7 @@ public class BasicGear extends Item{
 
 	public BasicGear(GearTypes typeIn){
 		String name = "gear_" + typeIn.toString().toLowerCase();
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAG_GEAR);
 		type = typeIn;

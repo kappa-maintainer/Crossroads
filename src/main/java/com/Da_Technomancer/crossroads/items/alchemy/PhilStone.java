@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.items.alchemy;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.ModItems;
 
 import net.minecraft.entity.item.EntityItem;
@@ -12,7 +13,7 @@ public class PhilStone extends Item{
 
 	public PhilStone(){
 		String name = "phil_stone";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

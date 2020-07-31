@@ -1,5 +1,7 @@
 package com.Da_Technomancer.crossroads.items;
 
+import com.Da_Technomancer.crossroads.Main;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -14,7 +16,7 @@ public class SquidHelmet extends ItemArmor{
 		super(ModItems.BOBO, 1, EntityEquipmentSlot.HEAD);
 		setMaxStackSize(1);
 		String name = "squid_helmet";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

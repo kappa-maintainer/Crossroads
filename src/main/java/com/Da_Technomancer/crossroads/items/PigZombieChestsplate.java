@@ -1,5 +1,7 @@
 package com.Da_Technomancer.crossroads.items;
 
+import com.Da_Technomancer.crossroads.Main;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -16,7 +18,7 @@ public class PigZombieChestsplate extends ItemArmor{
 		super(ModItems.BOBO, 1, EntityEquipmentSlot.CHEST);
 		setMaxStackSize(1);
 		String name = "pig_zombie_chestplate";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		ModItems.toRegister.add(this);

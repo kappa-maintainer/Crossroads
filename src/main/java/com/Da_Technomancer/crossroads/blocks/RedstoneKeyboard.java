@@ -24,7 +24,7 @@ public class RedstoneKeyboard extends BlockContainer{
 	protected RedstoneKeyboard(){
 		super(Material.IRON);
 		String name = "redstone_keyboard";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

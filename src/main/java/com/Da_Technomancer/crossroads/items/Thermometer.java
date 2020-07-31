@@ -8,13 +8,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+
+import com.Da_Technomancer.crossroads.Main;
+
 import java.util.List;
 
 public class Thermometer extends Item{
 
 	public Thermometer(){
 		String name = "thermometer";
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		ModItems.toRegister.add(this);
 		ModItems.itemAddQue(this);

@@ -70,7 +70,7 @@ public class RedstoneHeatCable extends BlockContainer implements IConduitModel{
 		super(Material.IRON);
 		this.insulator = insulator;
 		String name = "redstone_heat_cable_copper_" + insulator.toString().toLowerCase();
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(1);
 		setCreativeTab(ModItems.TAB_HEAT_CABLE);

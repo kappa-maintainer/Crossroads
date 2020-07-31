@@ -1,5 +1,6 @@
 package com.Da_Technomancer.crossroads.blocks;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.API.Properties;
 import com.Da_Technomancer.crossroads.items.ModItems;
 
@@ -25,7 +26,7 @@ public class MultiPistonExtend extends Block{
 		super(Material.PISTON);
 		this.sticky = sticky;
 		String name = "multi_piston_extend" + (sticky ? "_sticky" : "");
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(0.5F);
 		setCreativeTab(ModItems.TAB_CROSSROADS);

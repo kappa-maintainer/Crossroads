@@ -35,7 +35,7 @@ public class FuelHeater extends BlockContainer{
 	public FuelHeater(){
 		super(Material.ROCK);
 		String name = "coal_heater";//Registered as coal_heater for legacy reasons
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(ModItems.TAB_CROSSROADS);
 		setHardness(3);

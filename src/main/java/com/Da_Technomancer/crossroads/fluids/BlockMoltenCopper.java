@@ -19,7 +19,7 @@ public class BlockMoltenCopper extends BlockFluidClassic{
 	public BlockMoltenCopper(){
 		super(MOLTEN_COPPER, Material.LAVA);
 		MOLTEN_COPPER.setBlock(this);
-		setUnlocalizedName("blockMoltenCopper");
+		setUnlocalizedName(Main.MODID + "." + "blockMoltenCopper");
 		setRegistryName("blockMoltenCopper");
 		ModBlocks.toRegister.add(this);
 	}

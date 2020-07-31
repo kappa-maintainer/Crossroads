@@ -543,7 +543,7 @@ public class PrototypingTableTileEntity extends AbstractInventory implements ISt
 
 	@Override
 	public String getName(){
-		return "container.prototype_table";
+		return "container.crossroads.prototype_table";
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.Da_Technomancer.crossroads.items;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.Da_Technomancer.crossroads.Main;
 import com.Da_Technomancer.crossroads.items.crafting.ModCrafting;
 
 import net.minecraft.item.Item;
@@ -23,7 +24,7 @@ public class BasicItem extends Item{
 	}
 
 	public BasicItem(String name, String oreDict, boolean tab){
-		setUnlocalizedName(name);
+		setUnlocalizedName(Main.MODID + "." + name);
 		setRegistryName(name);
 		if(tab){
 			setCreativeTab(ModItems.TAB_CROSSROADS);
