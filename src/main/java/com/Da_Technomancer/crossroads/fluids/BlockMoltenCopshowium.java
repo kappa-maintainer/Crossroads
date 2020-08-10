@@ -41,6 +41,7 @@ public class BlockMoltenCopshowium extends BlockFluidClassic{
 
 		private FluidMoltenCopshowium(){
 			super("copshowium", new ResourceLocation(Main.MODID, "blocks/moltencopshowium_still"), new ResourceLocation(Main.MODID, "blocks/moltencopshowium_flow"));
+			setUnlocalizedName("crossroads.copshowium");
 			setDensity(3000);
 			setTemperature(1500);
 			setViscosity(1300);

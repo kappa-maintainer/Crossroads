@@ -39,6 +39,7 @@ public class BlockDistilledWater extends BlockFluidClassic{
 
 		private FluidDistilledWater(){
 			super("distilledwater", new ResourceLocation(Main.MODID, "blocks/distilledwater_still"), new ResourceLocation(Main.MODID, "blocks/distilledwater_flow"));
+			setUnlocalizedName("crossroads.distilledwater");
 		}
 	}
 }

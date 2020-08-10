@@ -40,6 +40,7 @@ public class BlockLiquidFat extends BlockFluidClassic{
 
 		private FluidLiquidFat(){
 			super("liquidfat", new ResourceLocation(Main.MODID + ":blocks/liquidfat_still"), new ResourceLocation(Main.MODID + ":blocks/liquidfat_flow"));
+			setUnlocalizedName("crossroads.liquidfat");
 			setDensity(2000);
 			setViscosity(2000);
 		}
